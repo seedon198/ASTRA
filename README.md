@@ -1,13 +1,13 @@
-# ASTRA - Global Attack Surface Tracker
+<div align="center"># ASTRA - Global Attack Surface Tracker
 
-<div align="center">
+
 
 ![ASTRA Logo](https://img.shields.io/badge/ASTRA-Global%20Attack%20Surface%20Tracker-2ea44f?style=for-the-badge&logo=shield)
 
 **Real-time cybersecurity exposure monitoring across global infrastructure**
 
 [![Data Status](https://img.shields.io/badge/Data-Live-brightgreen?style=flat-square)](https://github.com/seedon198/ASTRA)
-[![Last Updated](https://img.shields.io/badge/Updated-2025.07.25.08.19-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
+[![Last Updated](https://img.shields.io/badge/Updated-2025.07.25.17.32-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
 [![APIs Active](https://img.shields.io/badge/APIs-3-success?style=flat-square)](https://github.com/seedon198/ASTRA)
 [![Auto Update](https://img.shields.io/badge/Auto_Update-15min-orange?style=flat-square)](https://github.com/seedon198/ASTRA)
 
@@ -17,9 +17,9 @@
 
 ## 🌍 Global Threat Intelligence Dashboard
 
-> **Last Updated:** `2025-07-25 08:19:20 UTC`  
+> **Last Updated:** `2025-07-25 17:32:19 UTC`  
 > **Data Sources:** Shodan Pro • GreyNoise • VirusTotal  
-> **Coverage:** 10 Countries • 5 Organizations
+> **Coverage:** 50 Countries • 5 Organizations
 
 ---
 
@@ -32,7 +32,7 @@
 
 **🚨 CRITICAL ALERTS**
 ```
-17,649
+4,540,716
 ```
 Critical Vulnerabilities
 
@@ -41,7 +41,7 @@ Critical Vulnerabilities
 
 **🌐 EXPOSED SERVICES**
 ```
-810,096
+227,037,074
 ```
 Internet-Facing Assets
 
@@ -50,7 +50,7 @@ Internet-Facing Assets
 
 **⚡ ACTIVE THREATS**
 ```
-17,627
+14,300
 ```
 Live Attack Attempts
 
@@ -59,7 +59,7 @@ Live Attack Attempts
 
 **🦠 MALWARE DOMAINS**
 ```
-40
+0
 ```
 Confirmed Malicious
 
@@ -75,11 +75,11 @@ Confirmed Malicious
 <div align="center">
 <table width="100%">
 <tr><th align="center">Risk Category</th><th align="center">Count</th><th align="center">Percentage</th><th align="center">Trend</th><th align="center">Source</th><th align="center">Severity</th></tr>
-<tr><td align="center"><strong>Exposed Services</strong></td><td align="center">810,096</td><td align="center">100.0%</td><td align="center">📊</td><td align="center">Shodan Pro</td><td align="center">⚠️ <strong>HIGH</strong></td></tr>
-<tr><td align="center"><strong>Critical Vulns</strong></td><td align="center">17,649</td><td align="center">2.2%</td><td align="center">📈</td><td align="center">Shodan Pro</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
-<tr><td align="center"><strong>Active Threats</strong></td><td align="center">17,627</td><td align="center">2.2%</td><td align="center">📈</td><td align="center">GreyNoise</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
-<tr><td align="center"><strong>Malicious Domains</strong></td><td align="center">40</td><td align="center">4.0%</td><td align="center">📊</td><td align="center">VirusTotal</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
-<tr><td align="center"><strong>Suspicious Domains</strong></td><td align="center">15</td><td align="center">1.5%</td><td align="center">📉</td><td align="center">VirusTotal</td><td align="center">⚠️ <strong>HIGH</strong></td></tr>
+<tr><td align="center"><strong>Exposed Services</strong></td><td align="center">227,037,074</td><td align="center">100.0%</td><td align="center">📊</td><td align="center">Shodan Pro</td><td align="center">⚠️ <strong>HIGH</strong></td></tr>
+<tr><td align="center"><strong>Critical Vulns</strong></td><td align="center">4,540,716</td><td align="center">2.0%</td><td align="center">📈</td><td align="center">Shodan Pro</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
+<tr><td align="center"><strong>Active Threats</strong></td><td align="center">14,300</td><td align="center">0.0%</td><td align="center">📈</td><td align="center">GreyNoise</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
+<tr><td align="center"><strong>Malicious Domains</strong></td><td align="center">0</td><td align="center">0.0%</td><td align="center">📊</td><td align="center">VirusTotal</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
+<tr><td align="center"><strong>Suspicious Domains</strong></td><td align="center">0</td><td align="center">0.0%</td><td align="center">📉</td><td align="center">VirusTotal</td><td align="center">⚠️ <strong>HIGH</strong></td></tr>
 </table>
 </div>
 
@@ -95,92 +95,92 @@ Confirmed Malicious
 <tr><th align="center">Rank</th><th align="center">Country</th><th align="center">🌐 Exposed Services</th><th align="center">🚨 Critical Vulns</th><th align="center">⚡ Threat Activity</th><th align="center">📊 Risk Score</th><th align="center">📈 Trend</th></tr>
 <tr>
 <td align="center"><strong>1</strong></td>
-<td align="center"><strong>US</strong></td>
-<td align="center">160,240</td>
-<td align="center">3,941</td>
-<td align="center">1,288</td>
+<td align="center"><strong>CN</strong></td>
+<td align="center">102,978,007</td>
+<td align="center">2,059,560</td>
+<td align="center">977</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>2</strong></td>
-<td align="center"><strong>CN</strong></td>
-<td align="center">135,322</td>
-<td align="center">3,192</td>
-<td align="center">2,022</td>
+<td align="center"><strong>US</strong></td>
+<td align="center">46,567,245</td>
+<td align="center">931,344</td>
+<td align="center">1,548</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>3</strong></td>
 <td align="center"><strong>DE</strong></td>
-<td align="center">87,493</td>
-<td align="center">1,450</td>
-<td align="center">1,630</td>
+<td align="center">9,922,274</td>
+<td align="center">198,445</td>
+<td align="center">819</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>4</strong></td>
-<td align="center"><strong>RU</strong></td>
-<td align="center">80,851</td>
-<td align="center">1,641</td>
-<td align="center">1,332</td>
-<td align="center">🟡 HIGH</td>
+<td align="center"><strong>IN</strong></td>
+<td align="center">6,531,679</td>
+<td align="center">130,633</td>
+<td align="center">0</td>
+<td align="center">🟢 MODERATE</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>5</strong></td>
-<td align="center"><strong>GB</strong></td>
-<td align="center">72,280</td>
-<td align="center">1,658</td>
-<td align="center">2,035</td>
-<td align="center">🔴 CRITICAL</td>
+<td align="center"><strong>JP</strong></td>
+<td align="center">4,881,460</td>
+<td align="center">97,629</td>
+<td align="center">1,395</td>
+<td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>6</strong></td>
-<td align="center"><strong>JP</strong></td>
-<td align="center">71,109</td>
-<td align="center">1,259</td>
-<td align="center">1,437</td>
+<td align="center"><strong>RU</strong></td>
+<td align="center">4,733,789</td>
+<td align="center">94,675</td>
+<td align="center">2,240</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>7</strong></td>
-<td align="center"><strong>FR</strong></td>
-<td align="center">60,905</td>
-<td align="center">1,477</td>
-<td align="center">2,454</td>
-<td align="center">🔴 CRITICAL</td>
+<td align="center"><strong>HK</strong></td>
+<td align="center">4,276,885</td>
+<td align="center">85,537</td>
+<td align="center">0</td>
+<td align="center">🟢 MODERATE</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>8</strong></td>
-<td align="center"><strong>KR</strong></td>
-<td align="center">53,268</td>
-<td align="center">1,215</td>
-<td align="center">2,497</td>
-<td align="center">🔴 CRITICAL</td>
+<td align="center"><strong>GB</strong></td>
+<td align="center">3,754,144</td>
+<td align="center">75,082</td>
+<td align="center">1,486</td>
+<td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>9</strong></td>
-<td align="center"><strong>CA</strong></td>
-<td align="center">49,513</td>
-<td align="center">905</td>
-<td align="center">1,597</td>
-<td align="center">🔴 CRITICAL</td>
+<td align="center"><strong>NL</strong></td>
+<td align="center">3,440,306</td>
+<td align="center">68,806</td>
+<td align="center">0</td>
+<td align="center">🟢 MODERATE</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>10</strong></td>
-<td align="center"><strong>AU</strong></td>
-<td align="center">39,115</td>
-<td align="center">911</td>
-<td align="center">1,335</td>
-<td align="center">🔴 CRITICAL</td>
+<td align="center"><strong>FR</strong></td>
+<td align="center">3,395,881</td>
+<td align="center">67,917</td>
+<td align="center">817</td>
+<td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
 </table>
@@ -190,11 +190,11 @@ Confirmed Malicious
 ```
 Top 5 Countries (by exposed services):
 ==================================================
-1. US  ██████████████████████████████  29.9% (160,240)
-2. CN  █████████████████████████░░░░░  25.2% (135,322)
-3. DE  ████████████████░░░░░░░░░░░░░░  16.3% (87,493)
-4. RU  ███████████████░░░░░░░░░░░░░░░  15.1% (80,851)
-5. GB  █████████████░░░░░░░░░░░░░░░░░  13.5% (72,280)
+1. CN  ██████████████████████████████  60.3% (102,978,007)
+2. US  █████████████░░░░░░░░░░░░░░░░░  27.3% (46,567,245)
+3. DE  ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   5.8% (9,922,274)
+4. IN  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   3.8% (6,531,679)
+5. JP  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   2.9% (4,881,460)
 ```
 
 </details>
@@ -208,94 +208,454 @@ Top 5 Countries (by exposed services):
 <table width="100%">
 <tr><th align="center">Country</th><th align="center">Flag</th><th align="center">🌐 Exposed Services</th><th align="center">🚨 Critical Vulns</th><th align="center">⚡ Threat Activity</th><th align="center">📊 Risk Level</th><th align="center">💯 Security Score</th></tr>
 <tr>
-<td align="center"><strong>US</strong></td>
-<td align="center">🇺🇸</td>
-<td align="center">160,240</td>
-<td align="center">3,941</td>
-<td align="center">1,288</td>
-<td align="center">🟢 LOW</td>
-<td align="center">99.7%</td>
-</tr>
-<tr>
 <td align="center"><strong>CN</strong></td>
 <td align="center">🇨🇳</td>
-<td align="center">135,322</td>
-<td align="center">3,192</td>
-<td align="center">2,022</td>
+<td align="center">102,978,007</td>
+<td align="center">2,059,560</td>
+<td align="center">977</td>
 <td align="center">🟢 LOW</td>
-<td align="center">99.6%</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>US</strong></td>
+<td align="center">🇺🇸</td>
+<td align="center">46,567,245</td>
+<td align="center">931,344</td>
+<td align="center">1,548</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>DE</strong></td>
 <td align="center">🇩🇪</td>
-<td align="center">87,493</td>
-<td align="center">1,450</td>
-<td align="center">1,630</td>
+<td align="center">9,922,274</td>
+<td align="center">198,445</td>
+<td align="center">819</td>
 <td align="center">🟢 LOW</td>
-<td align="center">99.6%</td>
+<td align="center">99.8%</td>
 </tr>
 <tr>
-<td align="center"><strong>RU</strong></td>
-<td align="center">🇷🇺</td>
-<td align="center">80,851</td>
-<td align="center">1,641</td>
-<td align="center">1,332</td>
+<td align="center"><strong>IN</strong></td>
+<td align="center">🇮🇳</td>
+<td align="center">6,531,679</td>
+<td align="center">130,633</td>
+<td align="center">0</td>
 <td align="center">🟢 LOW</td>
-<td align="center">99.6%</td>
+<td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>JP</strong></td>
 <td align="center">🇯🇵</td>
-<td align="center">71,109</td>
-<td align="center">1,259</td>
-<td align="center">1,437</td>
+<td align="center">4,881,460</td>
+<td align="center">97,629</td>
+<td align="center">1,395</td>
 <td align="center">🟢 LOW</td>
-<td align="center">99.6%</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>RU</strong></td>
+<td align="center">🇷🇺</td>
+<td align="center">4,733,789</td>
+<td align="center">94,675</td>
+<td align="center">2,240</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>HK</strong></td>
+<td align="center">🏳️</td>
+<td align="center">4,276,885</td>
+<td align="center">85,537</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>GB</strong></td>
 <td align="center">🇬🇧</td>
-<td align="center">72,280</td>
-<td align="center">1,658</td>
-<td align="center">2,035</td>
+<td align="center">3,754,144</td>
+<td align="center">75,082</td>
+<td align="center">1,486</td>
 <td align="center">🟢 LOW</td>
-<td align="center">99.5%</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>NL</strong></td>
+<td align="center">🇳🇱</td>
+<td align="center">3,440,306</td>
+<td align="center">68,806</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>FR</strong></td>
 <td align="center">🇫🇷</td>
-<td align="center">60,905</td>
-<td align="center">1,477</td>
-<td align="center">2,454</td>
+<td align="center">3,395,881</td>
+<td align="center">67,917</td>
+<td align="center">817</td>
 <td align="center">🟢 LOW</td>
-<td align="center">99.4%</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>SG</strong></td>
+<td align="center">🏳️</td>
+<td align="center">3,290,894</td>
+<td align="center">65,817</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>BR</strong></td>
+<td align="center">🇧🇷</td>
+<td align="center">3,028,745</td>
+<td align="center">60,574</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>KR</strong></td>
 <td align="center">🇰🇷</td>
-<td align="center">53,268</td>
-<td align="center">1,215</td>
-<td align="center">2,497</td>
+<td align="center">2,452,270</td>
+<td align="center">49,045</td>
+<td align="center">1,545</td>
 <td align="center">🟢 LOW</td>
-<td align="center">99.3%</td>
+<td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>CA</strong></td>
 <td align="center">🇨🇦</td>
-<td align="center">49,513</td>
-<td align="center">905</td>
-<td align="center">1,597</td>
+<td align="center">2,175,142</td>
+<td align="center">43,502</td>
+<td align="center">1,730</td>
 <td align="center">🟢 LOW</td>
-<td align="center">99.5%</td>
+<td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>AU</strong></td>
 <td align="center">🇦🇺</td>
-<td align="center">39,115</td>
-<td align="center">911</td>
-<td align="center">1,335</td>
+<td align="center">1,893,046</td>
+<td align="center">37,860</td>
+<td align="center">1,743</td>
 <td align="center">🟢 LOW</td>
-<td align="center">99.4%</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>IT</strong></td>
+<td align="center">🇮🇹</td>
+<td align="center">1,833,644</td>
+<td align="center">36,672</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>IE</strong></td>
+<td align="center">🏳️</td>
+<td align="center">1,540,181</td>
+<td align="center">30,803</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>TW</strong></td>
+<td align="center">🏳️</td>
+<td align="center">1,504,508</td>
+<td align="center">30,090</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>VN</strong></td>
+<td align="center">🏳️</td>
+<td align="center">1,305,796</td>
+<td align="center">26,115</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>PL</strong></td>
+<td align="center">🇵🇱</td>
+<td align="center">1,149,500</td>
+<td align="center">22,990</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>ES</strong></td>
+<td align="center">🇪🇸</td>
+<td align="center">1,093,211</td>
+<td align="center">21,864</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>SE</strong></td>
+<td align="center">🇸🇪</td>
+<td align="center">1,016,988</td>
+<td align="center">20,339</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>FI</strong></td>
+<td align="center">🏳️</td>
+<td align="center">921,012</td>
+<td align="center">18,420</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>ID</strong></td>
+<td align="center">🏳️</td>
+<td align="center">903,680</td>
+<td align="center">18,073</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>MX</strong></td>
+<td align="center">🏳️</td>
+<td align="center">884,228</td>
+<td align="center">17,684</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>TH</strong></td>
+<td align="center">🏳️</td>
+<td align="center">800,637</td>
+<td align="center">16,012</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>VE</strong></td>
+<td align="center">🏳️</td>
+<td align="center">773,235</td>
+<td align="center">15,464</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>CH</strong></td>
+<td align="center">🇨🇭</td>
+<td align="center">717,599</td>
+<td align="center">14,351</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>TR</strong></td>
+<td align="center">🏳️</td>
+<td align="center">709,715</td>
+<td align="center">14,194</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>AR</strong></td>
+<td align="center">🏳️</td>
+<td align="center">690,356</td>
+<td align="center">13,807</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>ZA</strong></td>
+<td align="center">🏳️</td>
+<td align="center">628,252</td>
+<td align="center">12,565</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>BE</strong></td>
+<td align="center">🇧🇪</td>
+<td align="center">568,688</td>
+<td align="center">11,373</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>AT</strong></td>
+<td align="center">🏳️</td>
+<td align="center">557,251</td>
+<td align="center">11,145</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>RO</strong></td>
+<td align="center">🏳️</td>
+<td align="center">541,060</td>
+<td align="center">10,821</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>IR</strong></td>
+<td align="center">🏳️</td>
+<td align="center">507,371</td>
+<td align="center">10,147</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>MY</strong></td>
+<td align="center">🏳️</td>
+<td align="center">457,258</td>
+<td align="center">9,145</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>IL</strong></td>
+<td align="center">🏳️</td>
+<td align="center">421,608</td>
+<td align="center">8,432</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>CZ</strong></td>
+<td align="center">🏳️</td>
+<td align="center">414,102</td>
+<td align="center">8,282</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>UA</strong></td>
+<td align="center">🏳️</td>
+<td align="center">401,865</td>
+<td align="center">8,037</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>TN</strong></td>
+<td align="center">🏳️</td>
+<td align="center">380,539</td>
+<td align="center">7,610</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>CO</strong></td>
+<td align="center">🏳️</td>
+<td align="center">362,286</td>
+<td align="center">7,245</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>CL</strong></td>
+<td align="center">🏳️</td>
+<td align="center">359,250</td>
+<td align="center">7,185</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>DO</strong></td>
+<td align="center">🏳️</td>
+<td align="center">355,296</td>
+<td align="center">7,105</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>KZ</strong></td>
+<td align="center">🏳️</td>
+<td align="center">310,874</td>
+<td align="center">6,217</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>BG</strong></td>
+<td align="center">🏳️</td>
+<td align="center">301,879</td>
+<td align="center">6,037</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>PH</strong></td>
+<td align="center">🏳️</td>
+<td align="center">292,846</td>
+<td align="center">5,856</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>AE</strong></td>
+<td align="center">🏳️</td>
+<td align="center">268,173</td>
+<td align="center">5,363</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>DK</strong></td>
+<td align="center">🏳️</td>
+<td align="center">255,111</td>
+<td align="center">5,102</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>HU</strong></td>
+<td align="center">🏳️</td>
+<td align="center">253,473</td>
+<td align="center">5,069</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>EG</strong></td>
+<td align="center">🏳️</td>
+<td align="center">233,835</td>
+<td align="center">4,676</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
 </tr>
 </table>
 </div>
@@ -364,29 +724,43 @@ graph TB
 <tr>
 <td align="center"><strong>🇺🇸 North America</strong></td>
 <td align="center">2</td>
-<td align="center">2,885</td>
-<td align="center">99.6%</td>
+<td align="center">3,278</td>
+<td align="center">99.8%</td>
 <td align="center">🟢 LOW</td>
 </tr>
 <tr>
 <td align="center"><strong>🇪🇺 Europe</strong></td>
-<td align="center">3</td>
-<td align="center">6,119</td>
-<td align="center">99.5%</td>
+<td align="center">10</td>
+<td align="center">3,122</td>
+<td align="center">99.8%</td>
 <td align="center">🟢 LOW</td>
 </tr>
 <tr>
 <td align="center"><strong>🇨🇳 Asia-Pacific</strong></td>
 <td align="center">4</td>
-<td align="center">7,291</td>
-<td align="center">99.5%</td>
+<td align="center">5,660</td>
+<td align="center">99.8%</td>
 <td align="center">🟢 LOW</td>
 </tr>
 <tr>
 <td align="center"><strong>🇷🇺 Eastern Europe</strong></td>
 <td align="center">1</td>
-<td align="center">1,332</td>
-<td align="center">99.6%</td>
+<td align="center">2,240</td>
+<td align="center">99.8%</td>
+<td align="center">🟢 LOW</td>
+</tr>
+<tr>
+<td align="center"><strong>🇧🇷 South America</strong></td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">99.8%</td>
+<td align="center">🟢 LOW</td>
+</tr>
+<tr>
+<td align="center"><strong>🇮🇳 South Asia</strong></td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">99.8%</td>
 <td align="center">🟢 LOW</td>
 </tr>
 </table>
@@ -407,40 +781,40 @@ graph TB
 <tr>
 <td align="center"><strong>1</strong></td>
 <td align="center"><strong>Google</strong></td>
-<td align="center">577,816,665</td>
-<td align="center">8,667,249</td>
+<td align="center">582,161,312</td>
+<td align="center">8,732,419</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
 <tr>
 <td align="center"><strong>2</strong></td>
 <td align="center"><strong>Amazon</strong></td>
-<td align="center">17,932,542</td>
-<td align="center">268,988</td>
+<td align="center">18,114,312</td>
+<td align="center">271,714</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
 <tr>
 <td align="center"><strong>3</strong></td>
 <td align="center"><strong>DigitalOcean</strong></td>
-<td align="center">7,904,433</td>
-<td align="center">118,566</td>
+<td align="center">7,936,699</td>
+<td align="center">119,050</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
 <tr>
 <td align="center"><strong>4</strong></td>
 <td align="center"><strong>Cloudflare</strong></td>
-<td align="center">7,869,771</td>
-<td align="center">118,046</td>
+<td align="center">7,893,553</td>
+<td align="center">118,403</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
 <tr>
 <td align="center"><strong>5</strong></td>
 <td align="center"><strong>Microsoft</strong></td>
-<td align="center">7,239,965</td>
-<td align="center">108,599</td>
+<td align="center">7,274,350</td>
+<td align="center">109,115</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
@@ -477,21 +851,21 @@ Microsoft    ███████████████████░  98.5/
 <tr>
 <td align="center"><strong>Shodan Pro</strong></td>
 <td align="center">🟢 Active</td>
-<td align="center">15</td>
+<td align="center">55</td>
 <td align="center">Device & Service Discovery</td>
 <td align="center">Real-time</td>
 </tr>
 <tr>
 <td align="center"><strong>GreyNoise</strong></td>
 <td align="center">🟢 Active</td>
-<td align="center">17,627</td>
+<td align="center">14,300</td>
 <td align="center">Threat Intelligence</td>
 <td align="center">15 minutes</td>
 </tr>
 <tr>
 <td align="center"><strong>VirusTotal</strong></td>
 <td align="center">🟢 Active</td>
-<td align="center">55</td>
+<td align="center">0</td>
 <td align="center">Malware & Domain Analysis</td>
 <td align="center">15 minutes</td>
 </tr>
@@ -554,9 +928,9 @@ graph LR
 <div align="center">
 <table width="100%">
 <tr><th align="center">Metric</th><th align="center">Current</th><th align="center">24h Change</th><th align="center">7d Average</th><th align="center">Trend</th></tr>
-<tr><td align="center"><strong>Exposed Services</strong></td><td align="center">810,096</td><td align="center">+2.3%</td><td align="center">793,894</td><td align="center">📈</td></tr>
-<tr><td align="center"><strong>Critical Vulns</strong></td><td align="center">17,649</td><td align="center">-1.2%</td><td align="center">18,001</td><td align="center">📉</td></tr>
-<tr><td align="center"><strong>Active Threats</strong></td><td align="center">17,627</td><td align="center">+5.7%</td><td align="center">16,745</td><td align="center">📈</td></tr>
+<tr><td align="center"><strong>Exposed Services</strong></td><td align="center">227,037,074</td><td align="center">+2.3%</td><td align="center">222,496,332</td><td align="center">📈</td></tr>
+<tr><td align="center"><strong>Critical Vulns</strong></td><td align="center">4,540,716</td><td align="center">-1.2%</td><td align="center">4,631,530</td><td align="center">📉</td></tr>
+<tr><td align="center"><strong>Active Threats</strong></td><td align="center">14,300</td><td align="center">+5.7%</td><td align="center">13,585</td><td align="center">📈</td></tr>
 </table>
 </div>
 
@@ -572,6 +946,6 @@ graph LR
 
 ---
 
-*Generated automatically by ASTRA • 2025-07-25 15:48:20 UTC • Next update in ~15 minutes*
+*Generated automatically by ASTRA • 2025-07-25 17:32:19 UTC • Next update in ~15 minutes*
 
 </div>

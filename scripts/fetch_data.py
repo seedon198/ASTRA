@@ -286,6 +286,15 @@ def main():
         data = fetcher.generate_latest_data()
         fetcher.save_data(data)
         print("Data fetch completed successfully")
+        
+        # Generate README.md dashboard
+        print("Generating README.md dashboard...")
+        from generate_dashboard import AstraDashboardGenerator
+        generator = AstraDashboardGenerator()
+        dashboard_content = generator.generate_dashboard()
+        generator.save_dashboard(dashboard_content)
+        print("Dashboard generation completed successfully")
+        
     except Exception as e:
         print(f"Error fetching data: {e}")
         exit(1)

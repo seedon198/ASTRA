@@ -24,7 +24,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests
         
-    - name: Fetch ASTRA data
+    - name: Fetch ASTRA data and generate dashboard
       env:
         SHODAN_API_KEY: ${{ secrets.SHODAN_API_KEY }}
         GREYNOISE_API_KEY: ${{ secrets.GREYNOISE_API_KEY }}
@@ -32,10 +32,10 @@ jobs:
       run: |
         python scripts/fetch_data.py
         
-    - name: Commit and push data
+    - name: Commit and push updates
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "ASTRA Bot"
-        git add data/
-        git diff --staged --quiet || git commit -m "Update ASTRA data - $(date)"
+        git add data/ README.md
+        git diff --staged --quiet || git commit -m "Update ASTRA data and dashboard - $(date)"
         git push

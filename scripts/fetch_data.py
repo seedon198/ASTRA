@@ -288,12 +288,11 @@ def main():
         print("Data fetch completed successfully")
         
         # Generate README.md dashboard
-        print("Generating README.md dashboard...")
-        from generate_dashboard import AstraDashboardGenerator
-        generator = AstraDashboardGenerator()
-        dashboard_content = generator.generate_dashboard()
-        generator.save_dashboard(dashboard_content)
-        print("Dashboard generation completed successfully")
+        print("Generating enhanced README.md dashboard...")
+        from generate_enhanced_dashboard import AstraEnhancedDashboard
+        generator = AstraEnhancedDashboard()
+        generator.update_readme()
+        print("Enhanced dashboard generation completed successfully")
         
     except Exception as e:
         print(f"Error fetching data: {e}")

@@ -48,20 +48,33 @@ class AstraDashboardGenerator:
         }
     
     def generate_header(self, data: Dict[str, Any]) -> str:
-        """Generate the dashboard header"""
+        """Generate enhanced dashboard header with working badges"""
         last_updated = data.get("last_updated", "Unknown")
+        # Fix the badge URL to use the correct repository
+        encoded_time = last_updated.replace(' ', '%20').replace(':', '%3A')
         
         header = f"""# ASTRA - Global Attack Surface Tracker
 
+<div align="center">
+
+![ASTRA Logo](https://img.shields.io/badge/ASTRA-Global%20Attack%20Surface%20Tracker-2ea44f?style=for-the-badge&logo=shield)
+
 **Real-time cybersecurity exposure monitoring across global infrastructure**
 
-[![Data Status](https://img.shields.io/badge/Data-Live-brightgreen)](https://github.com/your-username/ASTRA)
-[![Last Updated](https://img.shields.io/badge/Updated-{last_updated.replace(' ', '%20').replace(':', '%3A')}-blue)](https://github.com/your-username/ASTRA)
-[![APIs](https://img.shields.io/badge/APIs-3%20Active-success)](https://github.com/your-username/ASTRA)
+[![Data Status](https://img.shields.io/badge/Data-Live-brightgreen?style=flat-square)](https://github.com/seedon198/ASTRA)
+[![Last Updated](https://img.shields.io/badge/Updated-{encoded_time}-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
+[![APIs Active](https://img.shields.io/badge/APIs-{len(data.get("data_sources", []))}-success?style=flat-square)](https://github.com/seedon198/ASTRA)
+[![Auto Update](https://img.shields.io/badge/Auto%20Update-15min-orange?style=flat-square)](https://github.com/seedon198/ASTRA)
 
-> Automated threat intelligence dashboard powered by Shodan Pro, GreyNoise, and VirusTotal APIs
-> 
-> **Last Updated:** {last_updated}
+</div>
+
+---
+
+## 🌍 Global Threat Intelligence Dashboard
+
+> **Last Updated:** `{last_updated}`  
+> **Data Sources:** {" • ".join(data.get("data_sources", []))}  
+> **Coverage:** {len(data.get("countries", {}))} Countries • {len(data.get("organizations", {}))} Organizations
 
 ---
 
@@ -69,8 +82,11 @@ class AstraDashboardGenerator:
         return header
     
     def generate_global_stats(self, data: Dict[str, Any]) -> str:
-        """Generate global statistics section"""
+        """Generate enhanced executive summary with visual elements"""
         stats = data.get("global_stats", {})
+        
+        def format_number(num):
+            return f"{num:,}"
         
         exposed = stats.get("total_exposed_services", 0)
         vulns = stats.get("total_critical_vulns", 0)
@@ -78,15 +94,60 @@ class AstraDashboardGenerator:
         malicious = stats.get("malicious_domains", 0)
         suspicious = stats.get("suspicious_domains", 0)
         
-        section = f"""## Global Threat Overview
+        section = f"""## 📊 Executive Summary
 
-| Metric | Count | Source |
-|--------|-------|--------|
-| **Total Exposed Services** | {exposed:,} | Shodan Pro |
-| **Critical Vulnerabilities** | {vulns:,} | Shodan Pro |
-| **Active Threats** | {threats:,} | GreyNoise |
-| **Malicious Domains** | {malicious:,} | VirusTotal |
-| **Suspicious Domains** | {suspicious:,} | VirusTotal |
+<table>
+<tr>
+<td align="center">
+
+**🚨 CRITICAL ALERTS**
+```
+{format_number(vulns)}
+```
+Critical Vulnerabilities
+
+</td>
+<td align="center">
+
+**🌐 EXPOSED SERVICES**
+```
+{format_number(exposed)}
+```
+Internet-Facing Assets
+
+</td>
+<td align="center">
+
+**⚡ ACTIVE THREATS**
+```
+{format_number(threats)}
+```
+Live Attack Attempts
+
+</td>
+<td align="center">
+
+**🦠 MALWARE DOMAINS**
+```
+{format_number(malicious)}
+```
+Confirmed Malicious
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🎯 Threat Intelligence Matrix
+
+| **Risk Category** | **Count** | **Percentage** | **Trend** | **Source** | **Severity** |
+|:------------------|----------:|:--------------:|:---------:|:-----------|:-------------|
+| Exposed Services | {format_number(exposed)} | 100.0% | 📊 | Shodan Pro | ⚠️ **HIGH** |
+| Critical Vulns | {format_number(vulns)} | {(vulns / exposed * 100) if exposed > 0 else 0:.1f}% | 📈 | Shodan Pro | 🔴 **CRITICAL** |
+| Active Threats | {format_number(threats)} | {(threats / exposed * 100) if exposed > 0 else 0:.1f}% | 📈 | GreyNoise | 🔴 **CRITICAL** |
+| Malicious Domains | {format_number(malicious)} | {(malicious / 100 * 100):.1f}% | 📊 | VirusTotal | 🔴 **CRITICAL** |
+| Suspicious Domains | {format_number(suspicious)} | {(suspicious / 100 * 100):.1f}% | 📉 | VirusTotal | ⚠️ **HIGH** |
 
 """
         return section

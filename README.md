@@ -25,6 +25,7 @@
 
 ## 📊 Executive Summary
 
+<div align="center">
 <table width="100%">
 <tr>
 <td align="center">
@@ -65,6 +66,7 @@ Confirmed Malicious
 </td>
 </tr>
 </table>
+</div>
 
 ---
 
@@ -85,7 +87,7 @@ Confirmed Malicious
 
 ## 🌎 Geographic Risk Distribution
 
-<details>
+<details open>
 <summary><strong>🏆 TOP 10 COUNTRIES BY EXPOSURE</strong> (Click to expand)</summary>
 
 <div align="center">
@@ -199,7 +201,7 @@ Top 5 Countries (by exposed services):
 
 ### 🗺️ Global Threat Landscape
 
-<details>
+<details open>
 <summary><strong>🌍 COMPLETE WORLD COVERAGE</strong> (Click to expand)</summary>
 
 <div align="center">
@@ -396,7 +398,7 @@ graph TB
 
 ## 🏢 Corporate Infrastructure Analysis
 
-<details>
+<details open>
 <summary><strong>🎯 TOP 10 ORGANIZATIONS BY EXPOSURE</strong> (Click to expand)</summary>
 
 <div align="center">
@@ -498,7 +500,7 @@ Microsoft    ███████████████████░  98.5/
 
 ## 📋 Methodology & Data Processing
 
-<details>
+<details open>
 <summary><strong>🔬 TECHNICAL IMPLEMENTATION</strong> (Click to expand)</summary>
 
 ### Data Collection Pipeline
@@ -568,6 +570,6 @@ graph LR
 
 ---
 
-*Generated automatically by ASTRA • 2025-07-25 08:35:54 UTC • Next update in ~15 minutes*
+*Generated automatically by ASTRA • 2025-07-25 15:48:20 UTC • Next update in ~15 minutes*
 
 </div>

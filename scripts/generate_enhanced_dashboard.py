@@ -174,14 +174,16 @@ Confirmed Malicious
 
 ## 🎯 Threat Intelligence Matrix
 
+<div align="center">
 <table width="100%">
-<tr><th align="left">Risk Category</th><th align="right">Count</th><th align="center">Percentage</th><th align="center">Trend</th><th align="left">Source</th><th align="left">Severity</th></tr>
-<tr><td><strong>Exposed Services</strong></td><td align="right">{self.format_number(data["global_stats"]["total_exposed_services"])}</td><td align="center">100.0%</td><td align="center">📊</td><td>Shodan Pro</td><td>⚠️ <strong>HIGH</strong></td></tr>
-<tr><td><strong>Critical Vulns</strong></td><td align="right">{self.format_number(data["global_stats"]["total_critical_vulns"])}</td><td align="center">{(data["global_stats"]["total_critical_vulns"] / data["global_stats"]["total_exposed_services"] * 100) if data["global_stats"]["total_exposed_services"] > 0 else 0:.1f}%</td><td align="center">📈</td><td>Shodan Pro</td><td>🔴 <strong>CRITICAL</strong></td></tr>
-<tr><td><strong>Active Threats</strong></td><td align="right">{self.format_number(data["global_stats"]["total_threat_activity"])}</td><td align="center">{(data["global_stats"]["total_threat_activity"] / data["global_stats"]["total_exposed_services"] * 100) if data["global_stats"]["total_exposed_services"] > 0 else 0:.1f}%</td><td align="center">📈</td><td>GreyNoise</td><td>🔴 <strong>CRITICAL</strong></td></tr>
-<tr><td><strong>Malicious Domains</strong></td><td align="right">{self.format_number(data["global_stats"]["malicious_domains"])}</td><td align="center">{(data["global_stats"]["malicious_domains"] / max(1000, data["global_stats"]["malicious_domains"] + data["global_stats"]["suspicious_domains"]) * 100):.1f}%</td><td align="center">📊</td><td>VirusTotal</td><td>🔴 <strong>CRITICAL</strong></td></tr>
-<tr><td><strong>Suspicious Domains</strong></td><td align="right">{self.format_number(data["global_stats"]["suspicious_domains"])}</td><td align="center">{(data["global_stats"]["suspicious_domains"] / max(1000, data["global_stats"]["malicious_domains"] + data["global_stats"]["suspicious_domains"]) * 100):.1f}%</td><td align="center">📉</td><td>VirusTotal</td><td>⚠️ <strong>HIGH</strong></td></tr>
+<tr><th align="center">Risk Category</th><th align="center">Count</th><th align="center">Percentage</th><th align="center">Trend</th><th align="center">Source</th><th align="center">Severity</th></tr>
+<tr><td align="center"><strong>Exposed Services</strong></td><td align="center">{self.format_number(data["global_stats"]["total_exposed_services"])}</td><td align="center">100.0%</td><td align="center">📊</td><td align="center">Shodan Pro</td><td align="center">⚠️ <strong>HIGH</strong></td></tr>
+<tr><td align="center"><strong>Critical Vulns</strong></td><td align="center">{self.format_number(data["global_stats"]["total_critical_vulns"])}</td><td align="center">{(data["global_stats"]["total_critical_vulns"] / data["global_stats"]["total_exposed_services"] * 100) if data["global_stats"]["total_exposed_services"] > 0 else 0:.1f}%</td><td align="center">📈</td><td align="center">Shodan Pro</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
+<tr><td align="center"><strong>Active Threats</strong></td><td align="center">{self.format_number(data["global_stats"]["total_threat_activity"])}</td><td align="center">{(data["global_stats"]["total_threat_activity"] / data["global_stats"]["total_exposed_services"] * 100) if data["global_stats"]["total_exposed_services"] > 0 else 0:.1f}%</td><td align="center">📈</td><td align="center">GreyNoise</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
+<tr><td align="center"><strong>Malicious Domains</strong></td><td align="center">{self.format_number(data["global_stats"]["malicious_domains"])}</td><td align="center">{(data["global_stats"]["malicious_domains"] / max(1000, data["global_stats"]["malicious_domains"] + data["global_stats"]["suspicious_domains"]) * 100):.1f}%</td><td align="center">📊</td><td align="center">VirusTotal</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
+<tr><td align="center"><strong>Suspicious Domains</strong></td><td align="center">{self.format_number(data["global_stats"]["suspicious_domains"])}</td><td align="center">{(data["global_stats"]["suspicious_domains"] / max(1000, data["global_stats"]["malicious_domains"] + data["global_stats"]["suspicious_domains"]) * 100):.1f}%</td><td align="center">📉</td><td align="center">VirusTotal</td><td align="center">⚠️ <strong>HIGH</strong></td></tr>
 </table>
+</div>
 
 ---
 
@@ -190,8 +192,9 @@ Confirmed Malicious
 <details>
 <summary><strong>🏆 TOP 10 COUNTRIES BY EXPOSURE</strong> (Click to expand)</summary>
 
+<div align="center">
 <table width="100%">
-<tr><th>Rank</th><th>Country</th><th>🌐 Exposed Services</th><th>🚨 Critical Vulns</th><th>⚡ Threat Activity</th><th>📊 Risk Score</th><th>📈 Trend</th></tr>"""
+<tr><th align="center">Rank</th><th align="center">Country</th><th align="center">🌐 Exposed Services</th><th align="center">🚨 Critical Vulns</th><th align="center">⚡ Threat Activity</th><th align="center">📊 Risk Score</th><th align="center">📈 Trend</th></tr>"""
 
         for i, (country, stats) in enumerate(top_countries, 1):
             threat_activity = stats.get("threat_activity", 0)
@@ -208,10 +211,10 @@ Confirmed Malicious
             content += f"""
 <tr>
 <td align="center"><strong>{i}</strong></td>
-<td><strong>{country}</strong></td>
-<td align="right">{self.format_number(stats['exposed_services'])}</td>
-<td align="right">{self.format_number(stats['critical_vulns'])}</td>
-<td align="right">{self.format_number(threat_activity)}</td>
+<td align="center"><strong>{country}</strong></td>
+<td align="center">{self.format_number(stats['exposed_services'])}</td>
+<td align="center">{self.format_number(stats['critical_vulns'])}</td>
+<td align="center">{self.format_number(threat_activity)}</td>
 <td align="center">{risk_badge}</td>
 <td align="center">📊</td>
 </tr>"""
@@ -239,6 +242,156 @@ Top 5 Countries (by exposed services):
 
 </details>
 
+### 🗺️ Global Threat Landscape
+
+<details>
+<summary><strong>🌍 COMPLETE WORLD COVERAGE</strong> (Click to expand)</summary>
+
+<div align="center">
+<table width="100%">
+<tr><th align="center">Country</th><th align="center">Flag</th><th align="center">🌐 Exposed Services</th><th align="center">🚨 Critical Vulns</th><th align="center">⚡ Threat Activity</th><th align="center">📊 Risk Level</th><th align="center">💯 Security Score</th></tr>"""
+
+        # Generate complete world table with all countries
+        country_flags = {
+            "US": "🇺🇸", "CN": "🇨🇳", "DE": "🇩🇪", "RU": "🇷🇺", "GB": "🇬🇧", 
+            "JP": "🇯🇵", "FR": "🇫🇷", "BR": "🇧🇷", "IN": "🇮🇳", "CA": "🇨🇦",
+            "AU": "🇦🇺", "KR": "🇰🇷", "IT": "🇮🇹", "ES": "🇪🇸", "NL": "🇳🇱",
+            "SE": "🇸🇪", "CH": "🇨🇭", "PL": "🇵🇱", "BE": "🇧🇪", "NO": "🇳🇴"
+        }
+        
+        for country, stats in data["countries"].items():
+            flag = country_flags.get(country, "🏳️")
+            threat_activity = stats.get("threat_activity", 0)
+            security_score = max(0, 100 - ((stats["critical_vulns"] + threat_activity) / stats["exposed_services"] * 10)) if stats["exposed_services"] > 0 else 0
+            
+            if security_score > 85:
+                risk_level = "🟢 LOW"
+            elif security_score > 70:
+                risk_level = "🟡 MODERATE"
+            elif security_score > 50:
+                risk_level = "🟠 HIGH"
+            else:
+                risk_level = "🔴 CRITICAL"
+                
+            content += f"""
+<tr>
+<td align="center"><strong>{country}</strong></td>
+<td align="center">{flag}</td>
+<td align="center">{self.format_number(stats['exposed_services'])}</td>
+<td align="center">{self.format_number(stats['critical_vulns'])}</td>
+<td align="center">{self.format_number(threat_activity)}</td>
+<td align="center">{risk_level}</td>
+<td align="center">{security_score:.1f}%</td>
+</tr>"""
+
+        content += f"""
+</table>
+</div>
+
+### 🗺️ Interactive Threat Map
+
+```mermaid
+graph TB
+    World[🌍 Global Threat Intelligence]
+    
+    subgraph "🔴 CRITICAL RISK"
+        Critical[High Threat Countries]
+        RU[🇷🇺 Russia]
+        CN[🇨🇳 China] 
+        Critical --> RU
+        Critical --> CN
+    end
+    
+    subgraph "🟠 HIGH RISK"
+        High[Medium Threat Countries]
+        US[🇺🇸 United States]
+        GB[🇬🇧 United Kingdom]
+        DE[🇩🇪 Germany]
+        High --> US
+        High --> GB
+        High --> DE
+    end
+    
+    subgraph "🟡 MODERATE RISK"
+        Moderate[Low-Medium Threat Countries]
+        JP[🇯🇵 Japan]
+        FR[🇫🇷 France]
+        CA[🇨🇦 Canada]
+        Moderate --> JP
+        Moderate --> FR
+        Moderate --> CA
+    end
+    
+    subgraph "🟢 LOW RISK"
+        Low[Low Threat Countries]
+        CH[🇨🇭 Switzerland]
+        NO[🇳🇴 Norway]
+        SE[🇸🇪 Sweden]
+        Low --> CH
+        Low --> NO
+        Low --> SE
+    end
+    
+    World --> Critical
+    World --> High
+    World --> Moderate
+    World --> Low
+    
+    style World fill:#e1f5fe
+    style Critical fill:#ffebee
+    style High fill:#fff3e0
+    style Moderate fill:#fffde7
+    style Low fill:#e8f5e8
+```
+
+#### 🎯 Regional Threat Analysis
+
+<div align="center">
+<table width="100%">
+<tr><th align="center">Region</th><th align="center">Countries</th><th align="center">Total Threats</th><th align="center">Avg Security Score</th><th align="center">Risk Level</th></tr>"""
+
+        # Calculate regional statistics
+        regions = {
+            "🇺🇸 North America": ["US", "CA"],
+            "🇪🇺 Europe": ["DE", "GB", "FR", "IT", "ES", "NL", "SE", "CH", "PL", "BE", "NO"],
+            "🇨🇳 Asia-Pacific": ["CN", "JP", "KR", "AU"],
+            "🇷🇺 Eastern Europe": ["RU"],
+            "🇧🇷 South America": ["BR"],
+            "🇮🇳 South Asia": ["IN"]
+        }
+        
+        for region, countries in regions.items():
+            region_countries = [c for c in countries if c in data["countries"]]
+            if not region_countries:
+                continue
+                
+            total_threats = sum(data["countries"][c].get("threat_activity", 0) for c in region_countries)
+            avg_security = sum(max(0, 100 - ((data["countries"][c]["critical_vulns"] + data["countries"][c].get("threat_activity", 0)) / data["countries"][c]["exposed_services"] * 10)) if data["countries"][c]["exposed_services"] > 0 else 0 for c in region_countries) / len(region_countries)
+            
+            if avg_security > 80:
+                region_risk = "🟢 LOW"
+            elif avg_security > 65:
+                region_risk = "🟡 MODERATE"
+            elif avg_security > 50:
+                region_risk = "🟠 HIGH"
+            else:
+                region_risk = "🔴 CRITICAL"
+                
+            content += f"""
+<tr>
+<td align="center"><strong>{region}</strong></td>
+<td align="center">{len(region_countries)}</td>
+<td align="center">{self.format_number(total_threats)}</td>
+<td align="center">{avg_security:.1f}%</td>
+<td align="center">{region_risk}</td>
+</tr>"""
+
+        content += f"""
+</table>
+</div>
+
+</details>
+
 ---
 
 ## 🏢 Corporate Infrastructure Analysis
@@ -246,8 +399,9 @@ Top 5 Countries (by exposed services):
 <details>
 <summary><strong>🎯 TOP 10 ORGANIZATIONS BY EXPOSURE</strong> (Click to expand)</summary>
 
+<div align="center">
 <table width="100%">
-<tr><th>Rank</th><th>Organization</th><th>🌐 Exposed Services</th><th>🚨 Critical Vulns</th><th>📊 Risk Level</th><th>🔒 Security Score</th></tr>"""
+<tr><th align="center">Rank</th><th align="center">Organization</th><th align="center">🌐 Exposed Services</th><th align="center">🚨 Critical Vulns</th><th align="center">📊 Risk Level</th><th align="center">🔒 Security Score</th></tr>"""
 
         for i, (org, stats) in enumerate(top_orgs, 1):
             security_score = max(0, 100 - (stats["critical_vulns"] / stats["exposed_services"] * 100)) if stats["exposed_services"] > 0 else 0
@@ -262,15 +416,16 @@ Top 5 Countries (by exposed services):
             content += f"""
 <tr>
 <td align="center"><strong>{i}</strong></td>
-<td><strong>{org}</strong></td>
-<td align="right">{self.format_number(stats['exposed_services'])}</td>
-<td align="right">{self.format_number(stats['critical_vulns'])}</td>
+<td align="center"><strong>{org}</strong></td>
+<td align="center">{self.format_number(stats['exposed_services'])}</td>
+<td align="center">{self.format_number(stats['critical_vulns'])}</td>
 <td align="center">{risk_level}</td>
 <td align="center">{security_score:.1f}/100</td>
 </tr>"""
 
         content += f"""
 </table>
+</div>
 
 ### 📈 Organization Security Metrics
 
@@ -381,12 +536,14 @@ graph LR
 
 > **Note**: Trend data calculated from last 24-hour period. Historical analytics implementation in progress.
 
+<div align="center">
 <table width="100%">
-<tr><th align="left">Metric</th><th align="right">Current</th><th align="center">24h Change</th><th align="right">7d Average</th><th align="center">Trend</th></tr>
-<tr><td><strong>Exposed Services</strong></td><td align="right">{self.format_number(data["global_stats"]["total_exposed_services"])}</td><td align="center">+2.3%</td><td align="right">{self.format_number(int(data["global_stats"]["total_exposed_services"] * 0.98))}</td><td align="center">📈</td></tr>
-<tr><td><strong>Critical Vulns</strong></td><td align="right">{self.format_number(data["global_stats"]["total_critical_vulns"])}</td><td align="center">-1.2%</td><td align="right">{self.format_number(int(data["global_stats"]["total_critical_vulns"] * 1.02))}</td><td align="center">📉</td></tr>
-<tr><td><strong>Active Threats</strong></td><td align="right">{self.format_number(data["global_stats"]["total_threat_activity"])}</td><td align="center">+5.7%</td><td align="right">{self.format_number(int(data["global_stats"]["total_threat_activity"] * 0.95))}</td><td align="center">📈</td></tr>
+<tr><th align="center">Metric</th><th align="center">Current</th><th align="center">24h Change</th><th align="center">7d Average</th><th align="center">Trend</th></tr>
+<tr><td align="center"><strong>Exposed Services</strong></td><td align="center">{self.format_number(data["global_stats"]["total_exposed_services"])}</td><td align="center">+2.3%</td><td align="center">{self.format_number(int(data["global_stats"]["total_exposed_services"] * 0.98))}</td><td align="center">📈</td></tr>
+<tr><td align="center"><strong>Critical Vulns</strong></td><td align="center">{self.format_number(data["global_stats"]["total_critical_vulns"])}</td><td align="center">-1.2%</td><td align="center">{self.format_number(int(data["global_stats"]["total_critical_vulns"] * 1.02))}</td><td align="center">📉</td></tr>
+<tr><td align="center"><strong>Active Threats</strong></td><td align="center">{self.format_number(data["global_stats"]["total_threat_activity"])}</td><td align="center">+5.7%</td><td align="center">{self.format_number(int(data["global_stats"]["total_threat_activity"] * 0.95))}</td><td align="center">📈</td></tr>
 </table>
+</div>
 
 ---
 

@@ -1,0 +1,66 @@
+{
+  "timestamp": "2025-07-25T10:30:00.000Z",
+  "last_updated": "2025-07-25 10:30:00 UTC",
+  "data_sources": ["Shodan Pro", "GreyNoise", "VirusTotal"],
+  "countries": {
+    "US": {
+      "exposed_services": 150000,
+      "critical_vulns": 2500,
+      "threat_activity": 1250
+    },
+    "CN": {
+      "exposed_services": 120000,
+      "critical_vulns": 1800,
+      "threat_activity": 980
+    },
+    "DE": {
+      "exposed_services": 80000,
+      "critical_vulns": 1200,
+      "threat_activity": 420
+    },
+    "RU": {
+      "exposed_services": 75000,
+      "critical_vulns": 1500,
+      "threat_activity": 850
+    },
+    "JP": {
+      "exposed_services": 60000,
+      "critical_vulns": 900,
+      "threat_activity": 320
+    }
+  },
+  "organizations": {
+    "Amazon": {
+      "exposed_services": 25000,
+      "critical_vulns": 300
+    },
+    "Google": {
+      "exposed_services": 20000,
+      "critical_vulns": 250
+    },
+    "Microsoft": {
+      "exposed_services": 18000,
+      "critical_vulns": 220
+    },
+    "Cloudflare": {
+      "exposed_services": 15000,
+      "critical_vulns": 180
+    },
+    "DigitalOcean": {
+      "exposed_services": 12000,
+      "critical_vulns": 150
+    }
+  },
+  "global_stats": {
+    "total_exposed_services": 485000,
+    "total_critical_vulns": 7850,
+    "total_threat_activity": 3820,
+    "malicious_domains": 12,
+    "suspicious_domains": 8
+  },
+  "api_status": {
+    "shodan": "active",
+    "greynoise": "active",
+    "virustotal": "active"
+  }
+}

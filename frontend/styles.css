@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #0a0f1f;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(90deg, #0ff, #f0f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main {
+  display: flex;
+  flex: 1;
+}
+
+#map-container {
+  flex: 2;
+  background-color: #121629;
+  border-right: 2px solid #0ff;
+}
+
+#world-map {
+  width: 100%;
+  height: 100%;
+}
+
+#leaderboard {
+  flex: 1;
+  background-color: #1a1f3c;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+#leaderboard h2 {
+  color: #0ff;
+}
+
+#leaderboard-list li {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid #0ff;
+}

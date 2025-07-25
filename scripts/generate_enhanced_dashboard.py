@@ -102,9 +102,9 @@ class AstraEnhancedDashboard:
             # Fallback to simple replacement
             badge_time = last_updated.replace(" ", ".").replace(":", ".").replace("-", ".")
         
-        content = f"""# ASTRA - Global Attack Surface Tracker
+        content = f"""<div align="center"># ASTRA - Global Attack Surface Tracker
 
-<div align="center">
+
 
 ![ASTRA Logo](https://img.shields.io/badge/ASTRA-Global%20Attack%20Surface%20Tracker-2ea44f?style=for-the-badge&logo=shield)
 
@@ -450,13 +450,14 @@ Security Score Distribution:
 
 ## 🔍 Data Sources & Intelligence Pipeline
 
+<div align="center">
 <table width="100%">
 <tr>
-<th>🛡️ API Service</th>
-<th>📊 Status</th>
-<th>📈 Data Points</th>
-<th>🎯 Purpose</th>
-<th>⚡ Update Rate</th>
+<th align="center">🛡️ API Service</th>
+<th align="center">📊 Status</th>
+<th align="center">📈 Data Points</th>
+<th align="center">🎯 Purpose</th>
+<th align="center">⚡ Update Rate</th>
 </tr>"""
 
         api_data_points = {
@@ -475,15 +476,16 @@ Security Score Distribution:
             status_icon = status_icons.get(status, "🔴")
             content += f"""
 <tr>
-<td><strong>{name}</strong></td>
-<td>{status_icon} {status.title()}</td>
-<td align="right">{self.format_number(points)}</td>
-<td>{purpose}</td>
-<td>{rate}</td>
+<td align="center"><strong>{name}</strong></td>
+<td align="center">{status_icon} {status.title()}</td>
+<td align="center">{self.format_number(points)}</td>
+<td align="center">{purpose}</td>
+<td align="center">{rate}</td>
 </tr>"""
 
         content += f"""
 </table>
+</div>
 
 ---
 

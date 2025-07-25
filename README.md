@@ -465,36 +465,38 @@ Microsoft    ███████████████████░  98.5/
 
 ## 🔍 Data Sources & Intelligence Pipeline
 
+<div align="center">
 <table width="100%">
 <tr>
-<th>🛡️ API Service</th>
-<th>📊 Status</th>
-<th>📈 Data Points</th>
-<th>🎯 Purpose</th>
-<th>⚡ Update Rate</th>
+<th align="center">🛡️ API Service</th>
+<th align="center">📊 Status</th>
+<th align="center">📈 Data Points</th>
+<th align="center">🎯 Purpose</th>
+<th align="center">⚡ Update Rate</th>
 </tr>
 <tr>
-<td><strong>Shodan Pro</strong></td>
-<td>🟢 Active</td>
-<td align="right">15</td>
-<td>Device & Service Discovery</td>
-<td>Real-time</td>
+<td align="center"><strong>Shodan Pro</strong></td>
+<td align="center">🟢 Active</td>
+<td align="center">15</td>
+<td align="center">Device & Service Discovery</td>
+<td align="center">Real-time</td>
 </tr>
 <tr>
-<td><strong>GreyNoise</strong></td>
-<td>🟢 Active</td>
-<td align="right">17,627</td>
-<td>Threat Intelligence</td>
-<td>15 minutes</td>
+<td align="center"><strong>GreyNoise</strong></td>
+<td align="center">🟢 Active</td>
+<td align="center">17,627</td>
+<td align="center">Threat Intelligence</td>
+<td align="center">15 minutes</td>
 </tr>
 <tr>
-<td><strong>VirusTotal</strong></td>
-<td>🟢 Active</td>
-<td align="right">55</td>
-<td>Malware & Domain Analysis</td>
-<td>15 minutes</td>
+<td align="center"><strong>VirusTotal</strong></td>
+<td align="center">🟢 Active</td>
+<td align="center">55</td>
+<td align="center">Malware & Domain Analysis</td>
+<td align="center">15 minutes</td>
 </tr>
 </table>
+</div>
 
 ---
 

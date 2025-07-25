@@ -7,9 +7,9 @@
 **Real-time cybersecurity exposure monitoring across global infrastructure**
 
 [![Data Status](https://img.shields.io/badge/Data-Live-brightgreen?style=flat-square)](https://github.com/seedon198/ASTRA)
-[![Last Updated](https://img.shields.io/badge/Updated-2025-07-25%2010%3A30%3A00%20UTC-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
+[![Last Updated](https://img.shields.io/badge/Updated-2025.07.25.10.30-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
 [![APIs Active](https://img.shields.io/badge/APIs-3-success?style=flat-square)](https://github.com/seedon198/ASTRA)
-[![Auto Update](https://img.shields.io/badge/Auto%20Update-15min-orange?style=flat-square)](https://github.com/seedon198/ASTRA)
+[![Auto Update](https://img.shields.io/badge/Auto_Update-15min-orange?style=flat-square)](https://github.com/seedon198/ASTRA)
 
 </div>
 
@@ -319,6 +319,6 @@ graph LR
 
 ---
 
-*Generated automatically by ASTRA • 2025-07-25 08:06:43 UTC • Next update in ~15 minutes*
+*Generated automatically by ASTRA • 2025-07-25 08:10:48 UTC • Next update in ~15 minutes*
 
 </div>

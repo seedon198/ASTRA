@@ -90,7 +90,17 @@ class AstraEnhancedDashboard:
         
         # Calculate totals
         total_services = data["global_stats"]["total_exposed_services"]
-        encoded_time = data["last_updated"].replace(" ", "%20").replace(":", "%3A")
+        
+        # Create a simple, readable timestamp for badge
+        last_updated = data["last_updated"]
+        # Create badge-friendly timestamp (just date and time without spaces/colons)
+        try:
+            from datetime import datetime
+            dt = datetime.strptime(last_updated, "%Y-%m-%d %H:%M:%S UTC")
+            badge_time = dt.strftime("%Y.%m.%d.%H.%M")
+        except:
+            # Fallback to simple replacement
+            badge_time = last_updated.replace(" ", ".").replace(":", ".").replace("-", ".")
         
         content = f"""# ASTRA - Global Attack Surface Tracker
 
@@ -101,9 +111,9 @@ class AstraEnhancedDashboard:
 **Real-time cybersecurity exposure monitoring across global infrastructure**
 
 [![Data Status](https://img.shields.io/badge/Data-Live-brightgreen?style=flat-square)](https://github.com/seedon198/ASTRA)
-[![Last Updated](https://img.shields.io/badge/Updated-{encoded_time}-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
+[![Last Updated](https://img.shields.io/badge/Updated-{badge_time}-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
 [![APIs Active](https://img.shields.io/badge/APIs-{len(data["data_sources"])}-success?style=flat-square)](https://github.com/seedon198/ASTRA)
-[![Auto Update](https://img.shields.io/badge/Auto%20Update-15min-orange?style=flat-square)](https://github.com/seedon198/ASTRA)
+[![Auto Update](https://img.shields.io/badge/Auto_Update-15min-orange?style=flat-square)](https://github.com/seedon198/ASTRA)
 
 </div>
 

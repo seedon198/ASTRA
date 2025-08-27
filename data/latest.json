@@ -1,6 +1,6 @@
 {
-  "timestamp": "2025-08-27T23:21:56.146219",
-  "last_updated": "2025-08-27 23:21:56 UTC",
+  "timestamp": "2025-08-27T23:40:08.704428",
+  "last_updated": "2025-08-27 23:40:08 UTC",
   "data_sources": [
     "Shodan Pro",
     "GreyNoise",
@@ -21,8 +21,8 @@
       "critical_vulns": 109215
     },
     "Cloudflare": {
-      "exposed_services": 7561113,
-      "critical_vulns": 113416
+      "exposed_services": 7539978,
+      "critical_vulns": 113099
     },
     "DigitalOcean": {
       "exposed_services": 7873922,

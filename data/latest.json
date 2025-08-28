@@ -1,6 +1,6 @@
 {
-  "timestamp": "2025-08-28T03:06:13.317970",
-  "last_updated": "2025-08-28 03:06:13 UTC",
+  "timestamp": "2025-08-28T03:45:30.371542",
+  "last_updated": "2025-08-28 03:45:30 UTC",
   "data_sources": [
     "Shodan Pro",
     "GreyNoise",
@@ -17,8 +17,8 @@
       "critical_vulns": 8826802
     },
     "Microsoft": {
-      "exposed_services": 7312245,
-      "critical_vulns": 109683
+      "exposed_services": 7281018,
+      "critical_vulns": 109215
     },
     "Cloudflare": {
       "exposed_services": 7561113,

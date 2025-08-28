@@ -1,6 +1,6 @@
 {
-  "timestamp": "2025-08-28T06:57:29.989779",
-  "last_updated": "2025-08-28 06:57:29 UTC",
+  "timestamp": "2025-08-28T07:26:14.492432",
+  "last_updated": "2025-08-28 07:26:14 UTC",
   "data_sources": [
     "Shodan Pro",
     "GreyNoise",
@@ -9,12 +9,12 @@
   "countries": {},
   "organizations": {
     "Amazon": {
-      "exposed_services": 18922701,
-      "critical_vulns": 283840
+      "exposed_services": 18763521,
+      "critical_vulns": 281452
     },
     "Google": {
-      "exposed_services": 593637846,
-      "critical_vulns": 8904567
+      "exposed_services": 588453501,
+      "critical_vulns": 8826802
     },
     "Microsoft": {
       "exposed_services": 7312245,
@@ -25,8 +25,8 @@
       "critical_vulns": 113416
     },
     "DigitalOcean": {
-      "exposed_services": 7908505,
-      "critical_vulns": 118627
+      "exposed_services": 7873922,
+      "critical_vulns": 118108
     }
   },
   "global_stats": {

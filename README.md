@@ -7,7 +7,7 @@
 **Real-time cybersecurity exposure monitoring across global infrastructure**
 
 [![Data Status](https://img.shields.io/badge/Data-Live-brightgreen?style=flat-square)](https://github.com/seedon198/ASTRA)
-[![Last Updated](https://img.shields.io/badge/Updated-2025.08.28.06.57-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
+[![Last Updated](https://img.shields.io/badge/Updated-2025.08.28.07.26-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
 [![APIs Active](https://img.shields.io/badge/APIs-3-success?style=flat-square)](https://github.com/seedon198/ASTRA)
 [![Auto Update](https://img.shields.io/badge/Auto_Update-15min-orange?style=flat-square)](https://github.com/seedon198/ASTRA)
 
@@ -17,7 +17,7 @@
 
 ## 🌍 Global Threat Intelligence Dashboard
 
-> **Last Updated:** `2025-08-28 06:57:29 UTC`  
+> **Last Updated:** `2025-08-28 07:26:14 UTC`  
 > **Data Sources:** Shodan Pro • GreyNoise • VirusTotal  
 > **Coverage:** 0 Countries • 5 Organizations
 
@@ -194,24 +194,24 @@ graph TB
 <tr>
 <td align="center"><strong>1</strong></td>
 <td align="center"><strong>Google</strong></td>
-<td align="center">593,637,846</td>
-<td align="center">8,904,567</td>
+<td align="center">588,453,501</td>
+<td align="center">8,826,802</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
 <tr>
 <td align="center"><strong>2</strong></td>
 <td align="center"><strong>Amazon</strong></td>
-<td align="center">18,922,701</td>
-<td align="center">283,840</td>
+<td align="center">18,763,521</td>
+<td align="center">281,452</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
 <tr>
 <td align="center"><strong>3</strong></td>
 <td align="center"><strong>DigitalOcean</strong></td>
-<td align="center">7,908,505</td>
-<td align="center">118,627</td>
+<td align="center">7,873,922</td>
+<td align="center">118,108</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
@@ -359,6 +359,6 @@ graph LR
 
 ---
 
-*Generated automatically by ASTRA • 2025-08-28 06:57:30 UTC • Next update in ~15 minutes*
+*Generated automatically by ASTRA • 2025-08-28 07:26:14 UTC • Next update in ~15 minutes*
 
 </div>

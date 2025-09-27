@@ -7,7 +7,7 @@
 **Real-time cybersecurity exposure monitoring across global infrastructure**
 
 [![Data Status](https://img.shields.io/badge/Data-Live-brightgreen?style=flat-square)](https://github.com/seedon198/ASTRA)
-[![Last Updated](https://img.shields.io/badge/Updated-2025.09.27.07.19-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
+[![Last Updated](https://img.shields.io/badge/Updated-2025.09.27.07.39-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
 [![APIs Active](https://img.shields.io/badge/APIs-3-success?style=flat-square)](https://github.com/seedon198/ASTRA)
 [![Auto Update](https://img.shields.io/badge/Auto_Update-15min-orange?style=flat-square)](https://github.com/seedon198/ASTRA)
 
@@ -17,7 +17,7 @@
 
 ## 🌍 Global Threat Intelligence Dashboard
 
-> **Last Updated:** `2025-09-27 07:19:20 UTC`  
+> **Last Updated:** `2025-09-27 07:39:07 UTC`  
 > **Data Sources:** Shodan Pro • GreyNoise • VirusTotal  
 > **Coverage:** 50 Countries • 5 Organizations
 
@@ -50,7 +50,7 @@ Internet-Facing Assets
 
 **⚡ ACTIVE THREATS**
 ```
-16,646
+20,250
 ```
 Live Attack Attempts
 
@@ -77,7 +77,7 @@ Confirmed Malicious
 <tr><th align="center">Risk Category</th><th align="center">Count</th><th align="center">Percentage</th><th align="center">Trend</th><th align="center">Source</th><th align="center">Severity</th></tr>
 <tr><td align="center"><strong>Exposed Services</strong></td><td align="center">121,089,421</td><td align="center">100.0%</td><td align="center">📊</td><td align="center">Shodan Pro</td><td align="center">⚠️ <strong>HIGH</strong></td></tr>
 <tr><td align="center"><strong>Critical Vulns</strong></td><td align="center">2,421,766</td><td align="center">2.0%</td><td align="center">📈</td><td align="center">Shodan Pro</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
-<tr><td align="center"><strong>Active Threats</strong></td><td align="center">16,646</td><td align="center">0.0%</td><td align="center">📈</td><td align="center">GreyNoise</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
+<tr><td align="center"><strong>Active Threats</strong></td><td align="center">20,250</td><td align="center">0.0%</td><td align="center">📈</td><td align="center">GreyNoise</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
 <tr><td align="center"><strong>Malicious Domains</strong></td><td align="center">0</td><td align="center">0.0%</td><td align="center">📊</td><td align="center">VirusTotal</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
 <tr><td align="center"><strong>Suspicious Domains</strong></td><td align="center">0</td><td align="center">0.0%</td><td align="center">📉</td><td align="center">VirusTotal</td><td align="center">⚠️ <strong>HIGH</strong></td></tr>
 </table>
@@ -98,7 +98,7 @@ Confirmed Malicious
 <td align="center"><strong>US</strong></td>
 <td align="center">40,553,218</td>
 <td align="center">811,064</td>
-<td align="center">1,577</td>
+<td align="center">1,614</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
@@ -107,7 +107,7 @@ Confirmed Malicious
 <td align="center"><strong>CN</strong></td>
 <td align="center">10,867,483</td>
 <td align="center">217,349</td>
-<td align="center">1,279</td>
+<td align="center">1,867</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
@@ -116,7 +116,7 @@ Confirmed Malicious
 <td align="center"><strong>DE</strong></td>
 <td align="center">9,604,239</td>
 <td align="center">192,084</td>
-<td align="center">1,385</td>
+<td align="center">2,490</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
@@ -125,7 +125,7 @@ Confirmed Malicious
 <td align="center"><strong>JP</strong></td>
 <td align="center">4,809,466</td>
 <td align="center">96,189</td>
-<td align="center">2,011</td>
+<td align="center">2,165</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
@@ -143,7 +143,7 @@ Confirmed Malicious
 <td align="center"><strong>GB</strong></td>
 <td align="center">3,681,627</td>
 <td align="center">73,632</td>
-<td align="center">1,782</td>
+<td align="center">2,385</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
@@ -170,7 +170,7 @@ Confirmed Malicious
 <td align="center"><strong>FR</strong></td>
 <td align="center">3,295,307</td>
 <td align="center">65,906</td>
-<td align="center">1,831</td>
+<td align="center">1,633</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
@@ -212,7 +212,7 @@ Top 5 Countries (by exposed services):
 <td align="center">🇺🇸</td>
 <td align="center">40,553,218</td>
 <td align="center">811,064</td>
-<td align="center">1,577</td>
+<td align="center">1,614</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
@@ -221,7 +221,7 @@ Top 5 Countries (by exposed services):
 <td align="center">🇨🇳</td>
 <td align="center">10,867,483</td>
 <td align="center">217,349</td>
-<td align="center">1,279</td>
+<td align="center">1,867</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
@@ -230,7 +230,7 @@ Top 5 Countries (by exposed services):
 <td align="center">🇩🇪</td>
 <td align="center">9,604,239</td>
 <td align="center">192,084</td>
-<td align="center">1,385</td>
+<td align="center">2,490</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
@@ -239,7 +239,7 @@ Top 5 Countries (by exposed services):
 <td align="center">🇯🇵</td>
 <td align="center">4,809,466</td>
 <td align="center">96,189</td>
-<td align="center">2,011</td>
+<td align="center">2,165</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
@@ -257,7 +257,7 @@ Top 5 Countries (by exposed services):
 <td align="center">🇬🇧</td>
 <td align="center">3,681,627</td>
 <td align="center">73,632</td>
-<td align="center">1,782</td>
+<td align="center">2,385</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
@@ -284,7 +284,7 @@ Top 5 Countries (by exposed services):
 <td align="center">🇫🇷</td>
 <td align="center">3,295,307</td>
 <td align="center">65,906</td>
-<td align="center">1,831</td>
+<td align="center">1,633</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
@@ -302,7 +302,7 @@ Top 5 Countries (by exposed services):
 <td align="center">🇷🇺</td>
 <td align="center">2,826,286</td>
 <td align="center">56,525</td>
-<td align="center">2,304</td>
+<td align="center">1,524</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
@@ -320,7 +320,7 @@ Top 5 Countries (by exposed services):
 <td align="center">🇰🇷</td>
 <td align="center">2,409,278</td>
 <td align="center">48,185</td>
-<td align="center">955</td>
+<td align="center">2,485</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
@@ -329,7 +329,7 @@ Top 5 Countries (by exposed services):
 <td align="center">🇨🇦</td>
 <td align="center">2,175,001</td>
 <td align="center">43,500</td>
-<td align="center">1,689</td>
+<td align="center">1,999</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
@@ -338,7 +338,7 @@ Top 5 Countries (by exposed services):
 <td align="center">🇦🇺</td>
 <td align="center">1,926,846</td>
 <td align="center">38,536</td>
-<td align="center">1,833</td>
+<td align="center">2,088</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
@@ -724,28 +724,28 @@ graph TB
 <tr>
 <td align="center"><strong>🇺🇸 North America</strong></td>
 <td align="center">2</td>
-<td align="center">3,266</td>
+<td align="center">3,613</td>
 <td align="center">99.8%</td>
 <td align="center">🟢 LOW</td>
 </tr>
 <tr>
 <td align="center"><strong>🇪🇺 Europe</strong></td>
 <td align="center">10</td>
-<td align="center">4,998</td>
+<td align="center">6,508</td>
 <td align="center">99.8%</td>
 <td align="center">🟢 LOW</td>
 </tr>
 <tr>
 <td align="center"><strong>🇨🇳 Asia-Pacific</strong></td>
 <td align="center">4</td>
-<td align="center">6,078</td>
+<td align="center">8,605</td>
 <td align="center">99.8%</td>
 <td align="center">🟢 LOW</td>
 </tr>
 <tr>
 <td align="center"><strong>🇷🇺 Eastern Europe</strong></td>
 <td align="center">1</td>
-<td align="center">2,304</td>
+<td align="center">1,524</td>
 <td align="center">99.8%</td>
 <td align="center">🟢 LOW</td>
 </tr>
@@ -789,32 +789,32 @@ graph TB
 <tr>
 <td align="center"><strong>2</strong></td>
 <td align="center"><strong>Amazon</strong></td>
-<td align="center">17,594,906</td>
-<td align="center">263,923</td>
+<td align="center">17,498,057</td>
+<td align="center">262,470</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
 <tr>
 <td align="center"><strong>3</strong></td>
 <td align="center"><strong>Cloudflare</strong></td>
-<td align="center">8,126,395</td>
-<td align="center">121,895</td>
+<td align="center">8,110,100</td>
+<td align="center">121,651</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
 <tr>
 <td align="center"><strong>4</strong></td>
 <td align="center"><strong>DigitalOcean</strong></td>
-<td align="center">7,755,935</td>
-<td align="center">116,339</td>
+<td align="center">7,717,146</td>
+<td align="center">115,757</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
 <tr>
 <td align="center"><strong>5</strong></td>
 <td align="center"><strong>Microsoft</strong></td>
-<td align="center">7,171,357</td>
-<td align="center">107,570</td>
+<td align="center">7,141,045</td>
+<td align="center">107,115</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
@@ -858,7 +858,7 @@ Microsoft    ███████████████████░  98.5/
 <tr>
 <td align="center"><strong>GreyNoise</strong></td>
 <td align="center">🟢 Active</td>
-<td align="center">16,646</td>
+<td align="center">20,250</td>
 <td align="center">Threat Intelligence</td>
 <td align="center">15 minutes</td>
 </tr>
@@ -930,7 +930,7 @@ graph LR
 <tr><th align="center">Metric</th><th align="center">Current</th><th align="center">24h Change</th><th align="center">7d Average</th><th align="center">Trend</th></tr>
 <tr><td align="center"><strong>Exposed Services</strong></td><td align="center">121,089,421</td><td align="center">+2.3%</td><td align="center">118,667,632</td><td align="center">📈</td></tr>
 <tr><td align="center"><strong>Critical Vulns</strong></td><td align="center">2,421,766</td><td align="center">-1.2%</td><td align="center">2,470,201</td><td align="center">📉</td></tr>
-<tr><td align="center"><strong>Active Threats</strong></td><td align="center">16,646</td><td align="center">+5.7%</td><td align="center">15,813</td><td align="center">📈</td></tr>
+<tr><td align="center"><strong>Active Threats</strong></td><td align="center">20,250</td><td align="center">+5.7%</td><td align="center">19,237</td><td align="center">📈</td></tr>
 </table>
 </div>
 
@@ -946,6 +946,6 @@ graph LR
 
 ---
 
-*Generated automatically by ASTRA • 2025-09-27 07:19:20 UTC • Next update in ~15 minutes*
+*Generated automatically by ASTRA • 2025-09-27 07:39:07 UTC • Next update in ~15 minutes*
 
 </div>

@@ -1,6 +1,6 @@
 {
-  "timestamp": "2025-10-26T16:46:35.207553",
-  "last_updated": "2025-10-26 16:46:35 UTC",
+  "timestamp": "2025-10-26T17:20:12.315868",
+  "last_updated": "2025-10-26 17:20:12 UTC",
   "data_sources": [
     "Shodan Pro",
     "GreyNoise",
@@ -10,22 +10,22 @@
     "US": {
       "exposed_services": 43678387,
       "critical_vulns": 873567,
-      "threat_activity": 2435
+      "threat_activity": 945
     },
     "DE": {
       "exposed_services": 10121948,
       "critical_vulns": 202438,
-      "threat_activity": 1944
+      "threat_activity": 1583
     },
     "CN": {
       "exposed_services": 10079234,
       "critical_vulns": 201584,
-      "threat_activity": 1390
+      "threat_activity": 2496
     },
     "JP": {
       "exposed_services": 5221068,
       "critical_vulns": 104421,
-      "threat_activity": 1055
+      "threat_activity": 902
     },
     "HK": {
       "exposed_services": 4380587,
@@ -35,7 +35,7 @@
     "GB": {
       "exposed_services": 3949188,
       "critical_vulns": 78983,
-      "threat_activity": 1761
+      "threat_activity": 1932
     },
     "IN": {
       "exposed_services": 3654248,
@@ -50,7 +50,7 @@
     "FR": {
       "exposed_services": 3438278,
       "critical_vulns": 68765,
-      "threat_activity": 981
+      "threat_activity": 1942
     },
     "NL": {
       "exposed_services": 3434998,
@@ -60,7 +60,7 @@
     "RU": {
       "exposed_services": 2822496,
       "critical_vulns": 56449,
-      "threat_activity": 1682
+      "threat_activity": 2143
     },
     "BR": {
       "exposed_services": 2615880,
@@ -70,17 +70,17 @@
     "KR": {
       "exposed_services": 2580117,
       "critical_vulns": 51602,
-      "threat_activity": 2337
+      "threat_activity": 800
     },
     "CA": {
       "exposed_services": 2294833,
       "critical_vulns": 45896,
-      "threat_activity": 836
+      "threat_activity": 1558
     },
     "AU": {
       "exposed_services": 2089914,
       "critical_vulns": 41798,
-      "threat_activity": 2227
+      "threat_activity": 1406
     },
     "IE": {
       "exposed_services": 2008870,
@@ -283,7 +283,7 @@
   "global_stats": {
     "total_exposed_services": 127206280,
     "total_critical_vulns": 2544097,
-    "total_threat_activity": 16648,
+    "total_threat_activity": 15707,
     "malicious_domains": 0,
     "suspicious_domains": 0
   },

@@ -7,7 +7,7 @@
 **Real-time cybersecurity exposure monitoring across global infrastructure**
 
 [![Data Status](https://img.shields.io/badge/Data-Live-brightgreen?style=flat-square)](https://github.com/seedon198/ASTRA)
-[![Last Updated](https://img.shields.io/badge/Updated-2025.11.29.05.57-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
+[![Last Updated](https://img.shields.io/badge/Updated-2025.11.29.06.38-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
 [![APIs Active](https://img.shields.io/badge/APIs-3-success?style=flat-square)](https://github.com/seedon198/ASTRA)
 [![Auto Update](https://img.shields.io/badge/Auto_Update-15min-orange?style=flat-square)](https://github.com/seedon198/ASTRA)
 
@@ -17,7 +17,7 @@
 
 ## 🌍 Global Threat Intelligence Dashboard
 
-> **Last Updated:** `2025-11-29 05:57:03 UTC`  
+> **Last Updated:** `2025-11-29 06:38:46 UTC`  
 > **Data Sources:** Shodan Pro • GreyNoise • VirusTotal  
 > **Coverage:** 50 Countries • 5 Organizations
 
@@ -32,7 +32,7 @@
 
 **🚨 CRITICAL ALERTS**
 ```
-2,386,414
+2,388,375
 ```
 Critical Vulnerabilities
 
@@ -41,7 +41,7 @@ Critical Vulnerabilities
 
 **🌐 EXPOSED SERVICES**
 ```
-119,322,056
+119,419,985
 ```
 Internet-Facing Assets
 
@@ -50,7 +50,7 @@ Internet-Facing Assets
 
 **⚡ ACTIVE THREATS**
 ```
-15,340
+16,066
 ```
 Live Attack Attempts
 
@@ -75,9 +75,9 @@ Confirmed Malicious
 <div align="center">
 <table width="100%">
 <tr><th align="center">Risk Category</th><th align="center">Count</th><th align="center">Percentage</th><th align="center">Trend</th><th align="center">Source</th><th align="center">Severity</th></tr>
-<tr><td align="center"><strong>Exposed Services</strong></td><td align="center">119,322,056</td><td align="center">100.0%</td><td align="center">📊</td><td align="center">Shodan Pro</td><td align="center">⚠️ <strong>HIGH</strong></td></tr>
-<tr><td align="center"><strong>Critical Vulns</strong></td><td align="center">2,386,414</td><td align="center">2.0%</td><td align="center">📈</td><td align="center">Shodan Pro</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
-<tr><td align="center"><strong>Active Threats</strong></td><td align="center">15,340</td><td align="center">0.0%</td><td align="center">📈</td><td align="center">GreyNoise</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
+<tr><td align="center"><strong>Exposed Services</strong></td><td align="center">119,419,985</td><td align="center">100.0%</td><td align="center">📊</td><td align="center">Shodan Pro</td><td align="center">⚠️ <strong>HIGH</strong></td></tr>
+<tr><td align="center"><strong>Critical Vulns</strong></td><td align="center">2,388,375</td><td align="center">2.0%</td><td align="center">📈</td><td align="center">Shodan Pro</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
+<tr><td align="center"><strong>Active Threats</strong></td><td align="center">16,066</td><td align="center">0.0%</td><td align="center">📈</td><td align="center">GreyNoise</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
 <tr><td align="center"><strong>Malicious Domains</strong></td><td align="center">0</td><td align="center">0.0%</td><td align="center">📊</td><td align="center">VirusTotal</td><td align="center">🔴 <strong>CRITICAL</strong></td></tr>
 <tr><td align="center"><strong>Suspicious Domains</strong></td><td align="center">0</td><td align="center">0.0%</td><td align="center">📉</td><td align="center">VirusTotal</td><td align="center">⚠️ <strong>HIGH</strong></td></tr>
 </table>
@@ -96,44 +96,44 @@ Confirmed Malicious
 <tr>
 <td align="center"><strong>1</strong></td>
 <td align="center"><strong>US</strong></td>
-<td align="center">41,683,371</td>
-<td align="center">833,667</td>
-<td align="center">2,201</td>
+<td align="center">41,717,688</td>
+<td align="center">834,353</td>
+<td align="center">1,124</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>2</strong></td>
 <td align="center"><strong>DE</strong></td>
-<td align="center">9,485,802</td>
-<td align="center">189,716</td>
-<td align="center">2,416</td>
+<td align="center">9,493,286</td>
+<td align="center">189,865</td>
+<td align="center">918</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>3</strong></td>
 <td align="center"><strong>CN</strong></td>
-<td align="center">9,278,652</td>
-<td align="center">185,573</td>
-<td align="center">1,661</td>
+<td align="center">9,286,185</td>
+<td align="center">185,723</td>
+<td align="center">1,391</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>4</strong></td>
 <td align="center"><strong>JP</strong></td>
-<td align="center">4,868,417</td>
-<td align="center">97,368</td>
-<td align="center">1,462</td>
+<td align="center">4,872,479</td>
+<td align="center">97,449</td>
+<td align="center">2,168</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>5</strong></td>
 <td align="center"><strong>HK</strong></td>
-<td align="center">4,077,653</td>
-<td align="center">81,553</td>
+<td align="center">4,079,972</td>
+<td align="center">81,599</td>
 <td align="center">0</td>
 <td align="center">🟢 MODERATE</td>
 <td align="center">📊</td>
@@ -141,17 +141,17 @@ Confirmed Malicious
 <tr>
 <td align="center"><strong>6</strong></td>
 <td align="center"><strong>GB</strong></td>
-<td align="center">3,682,741</td>
-<td align="center">73,654</td>
-<td align="center">969</td>
+<td align="center">3,686,056</td>
+<td align="center">73,721</td>
+<td align="center">2,429</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>7</strong></td>
 <td align="center"><strong>IN</strong></td>
-<td align="center">3,400,311</td>
-<td align="center">68,006</td>
+<td align="center">3,403,540</td>
+<td align="center">68,070</td>
 <td align="center">0</td>
 <td align="center">🟢 MODERATE</td>
 <td align="center">📊</td>
@@ -159,17 +159,17 @@ Confirmed Malicious
 <tr>
 <td align="center"><strong>8</strong></td>
 <td align="center"><strong>FR</strong></td>
-<td align="center">3,279,150</td>
-<td align="center">65,583</td>
-<td align="center">1,136</td>
+<td align="center">3,281,146</td>
+<td align="center">65,622</td>
+<td align="center">2,410</td>
 <td align="center">🟡 HIGH</td>
 <td align="center">📊</td>
 </tr>
 <tr>
 <td align="center"><strong>9</strong></td>
 <td align="center"><strong>SG</strong></td>
-<td align="center">3,275,268</td>
-<td align="center">65,505</td>
+<td align="center">3,278,043</td>
+<td align="center">65,560</td>
 <td align="center">0</td>
 <td align="center">🟢 MODERATE</td>
 <td align="center">📊</td>
@@ -177,8 +177,8 @@ Confirmed Malicious
 <tr>
 <td align="center"><strong>10</strong></td>
 <td align="center"><strong>NL</strong></td>
-<td align="center">3,243,643</td>
-<td align="center">64,872</td>
+<td align="center">3,245,330</td>
+<td align="center">64,906</td>
 <td align="center">0</td>
 <td align="center">🟢 MODERATE</td>
 <td align="center">📊</td>
@@ -190,11 +190,11 @@ Confirmed Malicious
 ```
 Top 5 Countries (by exposed services):
 ==================================================
-1. US  ██████████████████████████████  60.1% (41,683,371)
-2. DE  ██████░░░░░░░░░░░░░░░░░░░░░░░░  13.7% (9,485,802)
-3. CN  ██████░░░░░░░░░░░░░░░░░░░░░░░░  13.4% (9,278,652)
-4. JP  ███░░░░░░░░░░░░░░░░░░░░░░░░░░░   7.0% (4,868,417)
-5. HK  ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   5.9% (4,077,653)
+1. US  ██████████████████████████████  60.1% (41,717,688)
+2. DE  ██████░░░░░░░░░░░░░░░░░░░░░░░░  13.7% (9,493,286)
+3. CN  ██████░░░░░░░░░░░░░░░░░░░░░░░░  13.4% (9,286,185)
+4. JP  ███░░░░░░░░░░░░░░░░░░░░░░░░░░░   7.0% (4,872,479)
+5. HK  ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░   5.9% (4,079,972)
 ```
 
 </details>
@@ -210,44 +210,44 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>US</strong></td>
 <td align="center">🇺🇸</td>
-<td align="center">41,683,371</td>
-<td align="center">833,667</td>
-<td align="center">2,201</td>
+<td align="center">41,717,688</td>
+<td align="center">834,353</td>
+<td align="center">1,124</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>DE</strong></td>
 <td align="center">🇩🇪</td>
-<td align="center">9,485,802</td>
-<td align="center">189,716</td>
-<td align="center">2,416</td>
+<td align="center">9,493,286</td>
+<td align="center">189,865</td>
+<td align="center">918</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>CN</strong></td>
 <td align="center">🇨🇳</td>
-<td align="center">9,278,652</td>
-<td align="center">185,573</td>
-<td align="center">1,661</td>
+<td align="center">9,286,185</td>
+<td align="center">185,723</td>
+<td align="center">1,391</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>JP</strong></td>
 <td align="center">🇯🇵</td>
-<td align="center">4,868,417</td>
-<td align="center">97,368</td>
-<td align="center">1,462</td>
+<td align="center">4,872,479</td>
+<td align="center">97,449</td>
+<td align="center">2,168</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>HK</strong></td>
 <td align="center">🏳️</td>
-<td align="center">4,077,653</td>
-<td align="center">81,553</td>
+<td align="center">4,079,972</td>
+<td align="center">81,599</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -255,17 +255,17 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>GB</strong></td>
 <td align="center">🇬🇧</td>
-<td align="center">3,682,741</td>
-<td align="center">73,654</td>
-<td align="center">969</td>
+<td align="center">3,686,056</td>
+<td align="center">73,721</td>
+<td align="center">2,429</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>IN</strong></td>
 <td align="center">🇮🇳</td>
-<td align="center">3,400,311</td>
-<td align="center">68,006</td>
+<td align="center">3,403,540</td>
+<td align="center">68,070</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -273,17 +273,17 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>FR</strong></td>
 <td align="center">🇫🇷</td>
-<td align="center">3,279,150</td>
-<td align="center">65,583</td>
-<td align="center">1,136</td>
+<td align="center">3,281,146</td>
+<td align="center">65,622</td>
+<td align="center">2,410</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>SG</strong></td>
 <td align="center">🏳️</td>
-<td align="center">3,275,268</td>
-<td align="center">65,505</td>
+<td align="center">3,278,043</td>
+<td align="center">65,560</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -291,8 +291,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>NL</strong></td>
 <td align="center">🇳🇱</td>
-<td align="center">3,243,643</td>
-<td align="center">64,872</td>
+<td align="center">3,245,330</td>
+<td align="center">64,906</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -300,53 +300,53 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>RU</strong></td>
 <td align="center">🇷🇺</td>
-<td align="center">2,593,247</td>
-<td align="center">51,864</td>
-<td align="center">1,247</td>
-<td align="center">🟢 LOW</td>
-<td align="center">99.8%</td>
-</tr>
-<tr>
-<td align="center"><strong>KR</strong></td>
-<td align="center">🇰🇷</td>
-<td align="center">2,416,767</td>
-<td align="center">48,335</td>
-<td align="center">967</td>
+<td align="center">2,595,215</td>
+<td align="center">51,904</td>
+<td align="center">1,593</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>BR</strong></td>
 <td align="center">🇧🇷</td>
-<td align="center">2,416,312</td>
-<td align="center">48,326</td>
+<td align="center">2,418,865</td>
+<td align="center">48,377</td>
 <td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>KR</strong></td>
+<td align="center">🇰🇷</td>
+<td align="center">2,418,708</td>
+<td align="center">48,374</td>
+<td align="center">1,496</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>CA</strong></td>
 <td align="center">🇨🇦</td>
-<td align="center">2,157,820</td>
-<td align="center">43,156</td>
-<td align="center">2,407</td>
+<td align="center">2,159,352</td>
+<td align="center">43,187</td>
+<td align="center">1,177</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>AU</strong></td>
 <td align="center">🇦🇺</td>
-<td align="center">1,975,676</td>
-<td align="center">39,513</td>
-<td align="center">874</td>
+<td align="center">1,977,173</td>
+<td align="center">39,543</td>
+<td align="center">1,360</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
 </tr>
 <tr>
 <td align="center"><strong>IE</strong></td>
 <td align="center">🏳️</td>
-<td align="center">1,898,099</td>
-<td align="center">37,961</td>
+<td align="center">1,900,264</td>
+<td align="center">38,005</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -354,8 +354,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>IT</strong></td>
 <td align="center">🇮🇹</td>
-<td align="center">1,679,937</td>
-<td align="center">33,598</td>
+<td align="center">1,681,166</td>
+<td align="center">33,623</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -363,8 +363,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>TW</strong></td>
 <td align="center">🏳️</td>
-<td align="center">1,273,100</td>
-<td align="center">25,462</td>
+<td align="center">1,274,284</td>
+<td align="center">25,485</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -372,8 +372,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>VN</strong></td>
 <td align="center">🏳️</td>
-<td align="center">1,116,170</td>
-<td align="center">22,323</td>
+<td align="center">1,117,710</td>
+<td align="center">22,354</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -381,8 +381,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>ES</strong></td>
 <td align="center">🇪🇸</td>
-<td align="center">1,023,742</td>
-<td align="center">20,474</td>
+<td align="center">1,024,547</td>
+<td align="center">20,490</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -390,8 +390,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>SE</strong></td>
 <td align="center">🇸🇪</td>
-<td align="center">970,643</td>
-<td align="center">19,412</td>
+<td align="center">971,292</td>
+<td align="center">19,425</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -399,8 +399,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>PL</strong></td>
 <td align="center">🇵🇱</td>
-<td align="center">934,978</td>
-<td align="center">18,699</td>
+<td align="center">935,397</td>
+<td align="center">18,707</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -408,8 +408,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>FI</strong></td>
 <td align="center">🏳️</td>
-<td align="center">905,549</td>
-<td align="center">18,110</td>
+<td align="center">906,030</td>
+<td align="center">18,120</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -417,8 +417,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>ID</strong></td>
 <td align="center">🏳️</td>
-<td align="center">863,342</td>
-<td align="center">17,266</td>
+<td align="center">863,918</td>
+<td align="center">17,278</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -426,8 +426,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>MX</strong></td>
 <td align="center">🏳️</td>
-<td align="center">791,990</td>
-<td align="center">15,839</td>
+<td align="center">792,909</td>
+<td align="center">15,858</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -435,8 +435,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>TH</strong></td>
 <td align="center">🏳️</td>
-<td align="center">717,797</td>
-<td align="center">14,355</td>
+<td align="center">718,583</td>
+<td align="center">14,371</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -444,8 +444,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>TR</strong></td>
 <td align="center">🏳️</td>
-<td align="center">662,738</td>
-<td align="center">13,254</td>
+<td align="center">663,288</td>
+<td align="center">13,265</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -453,8 +453,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>CH</strong></td>
 <td align="center">🇨🇭</td>
-<td align="center">605,896</td>
-<td align="center">12,117</td>
+<td align="center">606,374</td>
+<td align="center">12,127</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -462,8 +462,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>ZA</strong></td>
 <td align="center">🏳️</td>
-<td align="center">590,930</td>
-<td align="center">11,818</td>
+<td align="center">591,442</td>
+<td align="center">11,828</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -471,8 +471,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>AR</strong></td>
 <td align="center">🏳️</td>
-<td align="center">584,145</td>
-<td align="center">11,682</td>
+<td align="center">584,884</td>
+<td align="center">11,697</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -480,8 +480,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>VE</strong></td>
 <td align="center">🏳️</td>
-<td align="center">526,135</td>
-<td align="center">10,522</td>
+<td align="center">527,312</td>
+<td align="center">10,546</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -489,8 +489,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>BE</strong></td>
 <td align="center">🇧🇪</td>
-<td align="center">523,783</td>
-<td align="center">10,475</td>
+<td align="center">524,250</td>
+<td align="center">10,485</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -498,8 +498,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>RO</strong></td>
 <td align="center">🏳️</td>
-<td align="center">498,965</td>
-<td align="center">9,979</td>
+<td align="center">499,315</td>
+<td align="center">9,986</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -507,8 +507,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>AT</strong></td>
 <td align="center">🏳️</td>
-<td align="center">458,620</td>
-<td align="center">9,172</td>
+<td align="center">458,979</td>
+<td align="center">9,179</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -516,8 +516,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>MY</strong></td>
 <td align="center">🏳️</td>
-<td align="center">417,966</td>
-<td align="center">8,359</td>
+<td align="center">418,417</td>
+<td align="center">8,368</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -525,17 +525,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>UA</strong></td>
 <td align="center">🏳️</td>
-<td align="center">404,441</td>
-<td align="center">8,088</td>
-<td align="center">0</td>
-<td align="center">🟢 LOW</td>
-<td align="center">99.8%</td>
-</tr>
-<tr>
-<td align="center"><strong>CZ</strong></td>
-<td align="center">🏳️</td>
-<td align="center">395,195</td>
-<td align="center">7,903</td>
+<td align="center">404,821</td>
+<td align="center">8,096</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -543,8 +534,17 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>IL</strong></td>
 <td align="center">🏳️</td>
-<td align="center">395,185</td>
-<td align="center">7,903</td>
+<td align="center">395,531</td>
+<td align="center">7,910</td>
+<td align="center">0</td>
+<td align="center">🟢 LOW</td>
+<td align="center">99.8%</td>
+</tr>
+<tr>
+<td align="center"><strong>CZ</strong></td>
+<td align="center">🏳️</td>
+<td align="center">395,438</td>
+<td align="center">7,908</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -552,8 +552,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>AE</strong></td>
 <td align="center">🏳️</td>
-<td align="center">364,293</td>
-<td align="center">7,285</td>
+<td align="center">364,782</td>
+<td align="center">7,295</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -561,8 +561,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>TN</strong></td>
 <td align="center">🏳️</td>
-<td align="center">327,731</td>
-<td align="center">6,554</td>
+<td align="center">328,063</td>
+<td align="center">6,561</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -570,8 +570,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>CL</strong></td>
 <td align="center">🏳️</td>
-<td align="center">327,684</td>
-<td align="center">6,553</td>
+<td align="center">327,890</td>
+<td align="center">6,557</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -579,8 +579,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>CO</strong></td>
 <td align="center">🏳️</td>
-<td align="center">321,422</td>
-<td align="center">6,428</td>
+<td align="center">321,659</td>
+<td align="center">6,433</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -588,8 +588,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>BG</strong></td>
 <td align="center">🏳️</td>
-<td align="center">280,408</td>
-<td align="center">5,608</td>
+<td align="center">280,611</td>
+<td align="center">5,612</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -597,8 +597,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>PH</strong></td>
 <td align="center">🏳️</td>
-<td align="center">280,332</td>
-<td align="center">5,606</td>
+<td align="center">280,515</td>
+<td align="center">5,610</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -606,8 +606,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>DK</strong></td>
 <td align="center">🏳️</td>
-<td align="center">246,211</td>
-<td align="center">4,924</td>
+<td align="center">246,455</td>
+<td align="center">4,929</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -615,7 +615,7 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>KZ</strong></td>
 <td align="center">🏳️</td>
-<td align="center">241,827</td>
+<td align="center">241,832</td>
 <td align="center">4,836</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
@@ -624,8 +624,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>SA</strong></td>
 <td align="center">🏳️</td>
-<td align="center">219,523</td>
-<td align="center">4,390</td>
+<td align="center">219,832</td>
+<td align="center">4,396</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -633,8 +633,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>HU</strong></td>
 <td align="center">🏳️</td>
-<td align="center">218,871</td>
-<td align="center">4,377</td>
+<td align="center">219,057</td>
+<td align="center">4,381</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -642,8 +642,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>EG</strong></td>
 <td align="center">🏳️</td>
-<td align="center">218,475</td>
-<td align="center">4,369</td>
+<td align="center">218,773</td>
+<td align="center">4,375</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -651,8 +651,8 @@ Top 5 Countries (by exposed services):
 <tr>
 <td align="center"><strong>IR</strong></td>
 <td align="center">🏳️</td>
-<td align="center">201,103</td>
-<td align="center">4,022</td>
+<td align="center">201,327</td>
+<td align="center">4,026</td>
 <td align="center">0</td>
 <td align="center">🟢 LOW</td>
 <td align="center">99.8%</td>
@@ -724,28 +724,28 @@ graph TB
 <tr>
 <td align="center"><strong>🇺🇸 North America</strong></td>
 <td align="center">2</td>
-<td align="center">4,608</td>
+<td align="center">2,301</td>
 <td align="center">99.8%</td>
 <td align="center">🟢 LOW</td>
 </tr>
 <tr>
 <td align="center"><strong>🇪🇺 Europe</strong></td>
 <td align="center">10</td>
-<td align="center">4,521</td>
+<td align="center">5,757</td>
 <td align="center">99.8%</td>
 <td align="center">🟢 LOW</td>
 </tr>
 <tr>
 <td align="center"><strong>🇨🇳 Asia-Pacific</strong></td>
 <td align="center">4</td>
-<td align="center">4,964</td>
+<td align="center">6,415</td>
 <td align="center">99.8%</td>
 <td align="center">🟢 LOW</td>
 </tr>
 <tr>
 <td align="center"><strong>🇷🇺 Eastern Europe</strong></td>
 <td align="center">1</td>
-<td align="center">1,247</td>
+<td align="center">1,593</td>
 <td align="center">99.8%</td>
 <td align="center">🟢 LOW</td>
 </tr>
@@ -797,8 +797,8 @@ graph TB
 <tr>
 <td align="center"><strong>3</strong></td>
 <td align="center"><strong>Cloudflare</strong></td>
-<td align="center">8,284,199</td>
-<td align="center">124,262</td>
+<td align="center">8,287,171</td>
+<td align="center">124,307</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
@@ -813,8 +813,8 @@ graph TB
 <tr>
 <td align="center"><strong>5</strong></td>
 <td align="center"><strong>DigitalOcean</strong></td>
-<td align="center">7,183,167</td>
-<td align="center">107,747</td>
+<td align="center">7,181,620</td>
+<td align="center">107,724</td>
 <td align="center">🟢 LOW</td>
 <td align="center">98.5/100</td>
 </tr>
@@ -858,7 +858,7 @@ DigitalOcean ███████████████████░  98.5/
 <tr>
 <td align="center"><strong>GreyNoise</strong></td>
 <td align="center">🟢 Active</td>
-<td align="center">15,340</td>
+<td align="center">16,066</td>
 <td align="center">Threat Intelligence</td>
 <td align="center">15 minutes</td>
 </tr>
@@ -928,9 +928,9 @@ graph LR
 <div align="center">
 <table width="100%">
 <tr><th align="center">Metric</th><th align="center">Current</th><th align="center">24h Change</th><th align="center">7d Average</th><th align="center">Trend</th></tr>
-<tr><td align="center"><strong>Exposed Services</strong></td><td align="center">119,322,056</td><td align="center">+2.3%</td><td align="center">116,935,614</td><td align="center">📈</td></tr>
-<tr><td align="center"><strong>Critical Vulns</strong></td><td align="center">2,386,414</td><td align="center">-1.2%</td><td align="center">2,434,142</td><td align="center">📉</td></tr>
-<tr><td align="center"><strong>Active Threats</strong></td><td align="center">15,340</td><td align="center">+5.7%</td><td align="center">14,573</td><td align="center">📈</td></tr>
+<tr><td align="center"><strong>Exposed Services</strong></td><td align="center">119,419,985</td><td align="center">+2.3%</td><td align="center">117,031,585</td><td align="center">📈</td></tr>
+<tr><td align="center"><strong>Critical Vulns</strong></td><td align="center">2,388,375</td><td align="center">-1.2%</td><td align="center">2,436,142</td><td align="center">📉</td></tr>
+<tr><td align="center"><strong>Active Threats</strong></td><td align="center">16,066</td><td align="center">+5.7%</td><td align="center">15,262</td><td align="center">📈</td></tr>
 </table>
 </div>
 
@@ -946,6 +946,6 @@ graph LR
 
 ---
 
-*Generated automatically by ASTRA • 2025-11-29 05:57:03 UTC • Next update in ~15 minutes*
+*Generated automatically by ASTRA • 2025-11-29 06:38:46 UTC • Next update in ~15 minutes*
 
 </div>

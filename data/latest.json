@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-01-04T14:24:44.688692",
-  "last_updated": "2026-01-04 14:24:44 UTC",
+  "timestamp": "2026-01-04T14:44:25.188150",
+  "last_updated": "2026-01-04 14:44:25 UTC",
   "data_sources": [
     "Shodan Pro",
     "GreyNoise",
@@ -10,22 +10,22 @@
     "US": {
       "exposed_services": 39594405,
       "critical_vulns": 791888,
-      "threat_activity": 2437
+      "threat_activity": 1643
     },
     "DE": {
       "exposed_services": 8986153,
       "critical_vulns": 179723,
-      "threat_activity": 1314
+      "threat_activity": 1785
     },
     "CN": {
       "exposed_services": 8368844,
       "critical_vulns": 167376,
-      "threat_activity": 2269
+      "threat_activity": 1785
     },
     "JP": {
       "exposed_services": 4606822,
       "critical_vulns": 92136,
-      "threat_activity": 1346
+      "threat_activity": 2306
     },
     "HK": {
       "exposed_services": 3849737,
@@ -45,7 +45,7 @@
     "FR": {
       "exposed_services": 3130960,
       "critical_vulns": 62619,
-      "threat_activity": 2068
+      "threat_activity": 2471
     },
     "SG": {
       "exposed_services": 3128398,
@@ -60,12 +60,12 @@
     "RU": {
       "exposed_services": 2470568,
       "critical_vulns": 49411,
-      "threat_activity": 1148
+      "threat_activity": 2387
     },
     "KR": {
       "exposed_services": 2247285,
       "critical_vulns": 44945,
-      "threat_activity": 2221
+      "threat_activity": 1985
     },
     "BR": {
       "exposed_services": 2211535,
@@ -75,12 +75,12 @@
     "CA": {
       "exposed_services": 2019371,
       "critical_vulns": 40387,
-      "threat_activity": 1883
+      "threat_activity": 1550
     },
     "AU": {
       "exposed_services": 1792436,
       "critical_vulns": 35848,
-      "threat_activity": 2248
+      "threat_activity": 1144
     },
     "IE": {
       "exposed_services": 1751031,
@@ -283,7 +283,7 @@
   "global_stats": {
     "total_exposed_services": 112291347,
     "total_critical_vulns": 2245798,
-    "total_threat_activity": 18326,
+    "total_threat_activity": 18448,
     "malicious_domains": 0,
     "suspicious_domains": 0
   },

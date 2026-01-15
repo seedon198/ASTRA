@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-01-15T21:31:17.517715",
-  "last_updated": "2026-01-15 21:31:17 UTC",
+  "timestamp": "2026-01-15T21:54:06.391209",
+  "last_updated": "2026-01-15 21:54:06 UTC",
   "data_sources": [
     "Shodan Pro",
     "GreyNoise",
@@ -10,22 +10,22 @@
     "US": {
       "exposed_services": 39930870,
       "critical_vulns": 798617,
-      "threat_activity": 2228
+      "threat_activity": 1466
     },
     "DE": {
       "exposed_services": 9060556,
       "critical_vulns": 181211,
-      "threat_activity": 964
+      "threat_activity": 1808
     },
     "CN": {
       "exposed_services": 8490489,
       "critical_vulns": 169809,
-      "threat_activity": 2242
+      "threat_activity": 1585
     },
     "JP": {
       "exposed_services": 4656254,
       "critical_vulns": 93125,
-      "threat_activity": 2116
+      "threat_activity": 1685
     },
     "HK": {
       "exposed_services": 3898745,
@@ -35,7 +35,7 @@
     "GB": {
       "exposed_services": 3527485,
       "critical_vulns": 70549,
-      "threat_activity": 2058
+      "threat_activity": 2320
     },
     "IN": {
       "exposed_services": 3261768,
@@ -50,7 +50,7 @@
     "FR": {
       "exposed_services": 3154867,
       "critical_vulns": 63097,
-      "threat_activity": 1989
+      "threat_activity": 2359
     },
     "NL": {
       "exposed_services": 3064394,
@@ -60,12 +60,12 @@
     "RU": {
       "exposed_services": 2495052,
       "critical_vulns": 49901,
-      "threat_activity": 1098
+      "threat_activity": 1024
     },
     "KR": {
       "exposed_services": 2272006,
       "critical_vulns": 45440,
-      "threat_activity": 2430
+      "threat_activity": 2004
     },
     "BR": {
       "exposed_services": 2257475,
@@ -75,12 +75,12 @@
     "CA": {
       "exposed_services": 2040916,
       "critical_vulns": 40818,
-      "threat_activity": 1305
+      "threat_activity": 904
     },
     "AU": {
       "exposed_services": 1873764,
       "critical_vulns": 37475,
-      "threat_activity": 1243
+      "threat_activity": 2408
     },
     "IE": {
       "exposed_services": 1784259,
@@ -264,16 +264,16 @@
       "critical_vulns": 269126
     },
     "Google": {
-      "exposed_services": 261408390,
-      "critical_vulns": 3921125
+      "exposed_services": 261423472,
+      "critical_vulns": 3921352
     },
     "Microsoft": {
       "exposed_services": 6580071,
       "critical_vulns": 98701
     },
     "Cloudflare": {
-      "exposed_services": 7948085,
-      "critical_vulns": 119221
+      "exposed_services": 7951719,
+      "critical_vulns": 119275
     },
     "DigitalOcean": {
       "exposed_services": 5998745,
@@ -283,7 +283,7 @@
   "global_stats": {
     "total_exposed_services": 113801896,
     "total_critical_vulns": 2276018,
-    "total_threat_activity": 17673,
+    "total_threat_activity": 17563,
     "malicious_domains": 0,
     "suspicious_domains": 0
   },

@@ -28,8 +28,10 @@ function applyTheme(theme) {
   currentTheme = theme;
   document.body.classList.toggle('light', theme === 'light');
   const btn = document.getElementById('theme-toggle');
-  btn.querySelector('.theme-icon').textContent = theme === 'light' ? '☀️' : '🌙';
-  btn.querySelector('.theme-label').textContent = theme === 'light' ? 'Light' : 'Dark';
+  if (btn) {
+    btn.querySelector('.theme-icon').textContent = theme === 'light' ? '☀️' : '🌙';
+    btn.querySelector('.theme-label').textContent = theme === 'light' ? 'Light' : 'Dark';
+  }
   localStorage.setItem('astra-theme', theme);
   if (window._leafletMap) swapTileLayer(theme);
 }
@@ -48,7 +50,7 @@ async function loadData() {
     const res = await fetch(DATA_URL);
     if (!res.ok) throw new Error(`HTTP ${res.status} — ${res.statusText}`);
     const data = await res.json();
-    renderAll(data);
+    await renderAll(data);
     document.getElementById('loading-overlay').classList.add('hidden');
     document.getElementById('app').classList.remove('hidden');
   } catch (err) {

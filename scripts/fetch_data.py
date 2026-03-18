@@ -32,7 +32,7 @@ class AstraDataFetcher:
         # API endpoints
         self.shodan_base = "https://api.shodan.io"
         self.greynoise_base = "https://api.greynoise.io/v3"
-        self.virustotal_base = "https://www.virustotal.com/vtapi/v2"
+        self.virustotal_base = "https://www.virustotal.com/api/v3"
         
         self.headers = {
             'User-Agent': 'ASTRA/1.0'
@@ -67,7 +67,7 @@ class AstraDataFetcher:
                     count = country_data['count']
                     countries[country_code] = {
                         "exposed_services": count,
-                        "critical_vulns": int(count * 0.02)  # Estimate 2% critical
+                        "critical_vulns_estimate": int(count * 0.02)  # Heuristic: ~2% of exposed services, not real vuln data
                     }
             
             return countries
@@ -101,7 +101,7 @@ class AstraDataFetcher:
             
             countries[country] = {
                 "exposed_services": services,
-                "critical_vulns": int(services * random.uniform(0.015, 0.025)),  # 1.5-2.5% critical
+                "critical_vulns_estimate": int(services * random.uniform(0.015, 0.025)),  # Heuristic: ~2% of exposed services, not real vuln data
                 "threat_activity": int(services * random.uniform(0.005, 0.015))  # 0.5-1.5% threats
             }
         
@@ -168,32 +168,28 @@ class AstraDataFetcher:
             }
             
         try:
-            # VirusTotal free tier is very limited, so we'll get domain reputation data
-            url = f"{self.virustotal_base}/domain/report"
-            
-            # Sample of known malicious domains to check
+            # VirusTotal v3 API - domain reputation lookup
             sample_domains = [
                 "malware-test.com", "phishing-example.net", "trojan-sample.org"
             ]
-            
+
             threat_stats = {"malicious_domains": 0, "suspicious_domains": 0}
-            
+            vt_headers = {**self.headers, 'x-apikey': self.virustotal_api_key}
+
             for domain in sample_domains:
-                params = {
-                    'apikey': self.virustotal_api_key,
-                    'domain': domain
-                }
-                
-                response = requests.get(url, params=params, headers=self.headers)
+                url = f"{self.virustotal_base}/domains/{domain}"
+
+                response = requests.get(url, headers=vt_headers)
                 if response.status_code == 200:
                     data = response.json()
-                    if data.get('response_code') == 1:
-                        positives = data.get('positives', 0)
-                        if positives > 5:
-                            threat_stats["malicious_domains"] += 1
-                        elif positives > 0:
-                            threat_stats["suspicious_domains"] += 1
-                
+                    stats = data.get('data', {}).get('attributes', {}).get('last_analysis_stats', {})
+                    malicious = stats.get('malicious', 0)
+                    suspicious = stats.get('suspicious', 0)
+                    if malicious > 5:
+                        threat_stats["malicious_domains"] += 1
+                    elif malicious > 0 or suspicious > 0:
+                        threat_stats["suspicious_domains"] += 1
+
                 # Respect rate limit
                 time.sleep(self.vt_rate_limit)
             
@@ -207,11 +203,11 @@ class AstraDataFetcher:
     def _get_placeholder_countries(self) -> Dict[str, Any]:
         """Fallback country data when APIs are unavailable"""
         return {
-            "US": {"exposed_services": 150000, "critical_vulns": 2500},
-            "CN": {"exposed_services": 120000, "critical_vulns": 1800},
-            "DE": {"exposed_services": 80000, "critical_vulns": 1200},
-            "RU": {"exposed_services": 75000, "critical_vulns": 1500},
-            "JP": {"exposed_services": 60000, "critical_vulns": 900}
+            "US": {"exposed_services": 150000, "critical_vulns_estimate": 2500},
+            "CN": {"exposed_services": 120000, "critical_vulns_estimate": 1800},
+            "DE": {"exposed_services": 80000, "critical_vulns_estimate": 1200},
+            "RU": {"exposed_services": 75000, "critical_vulns_estimate": 1500},
+            "JP": {"exposed_services": 60000, "critical_vulns_estimate": 900}
         }
     
     def fetch_country_stats(self) -> Dict[str, Any]:
@@ -225,7 +221,7 @@ class AstraDataFetcher:
         for country, stats in shodan_data.items():
             combined_stats[country] = {
                 "exposed_services": stats["exposed_services"],
-                "critical_vulns": stats["critical_vulns"],
+                "critical_vulns_estimate": stats.get("critical_vulns_estimate", stats.get("critical_vulns", 0)),
                 "threat_activity": greynoise_threats.get(country, 0)
             }
         
@@ -260,20 +256,20 @@ class AstraDataFetcher:
                     total = data.get('total', 0)
                     org_stats[org_name] = {
                         "exposed_services": total,
-                        "critical_vulns": int(total * 0.015)  # Estimate 1.5% critical for orgs
+                        "critical_vulns_estimate": int(total * 0.015)  # Heuristic: ~1.5% of exposed services, not real vuln data
                     }
                     
                 except Exception as e:
                     print(f"Error fetching {org_name} data: {e}")
                     # Fallback data
                     fallback_data = {
-                        "Amazon": {"exposed_services": 25000, "critical_vulns": 300},
-                        "Google": {"exposed_services": 20000, "critical_vulns": 250},
-                        "Microsoft": {"exposed_services": 18000, "critical_vulns": 220},
-                        "Cloudflare": {"exposed_services": 15000, "critical_vulns": 180},
-                        "DigitalOcean": {"exposed_services": 12000, "critical_vulns": 150}
+                        "Amazon": {"exposed_services": 25000, "critical_vulns_estimate": 300},
+                        "Google": {"exposed_services": 20000, "critical_vulns_estimate": 250},
+                        "Microsoft": {"exposed_services": 18000, "critical_vulns_estimate": 220},
+                        "Cloudflare": {"exposed_services": 15000, "critical_vulns_estimate": 180},
+                        "DigitalOcean": {"exposed_services": 12000, "critical_vulns_estimate": 150}
                     }
-                    org_stats[org_name] = fallback_data.get(org_name, {"exposed_services": 10000, "critical_vulns": 100})
+                    org_stats[org_name] = fallback_data.get(org_name, {"exposed_services": 10000, "critical_vulns_estimate": 100})
             
             return {"organizations": org_stats}
             
@@ -281,11 +277,11 @@ class AstraDataFetcher:
             print(f"Organization stats error: {e}")
             return {
                 "organizations": {
-                    "Amazon": {"exposed_services": 25000, "critical_vulns": 300},
-                    "Google": {"exposed_services": 20000, "critical_vulns": 250},
-                    "Microsoft": {"exposed_services": 18000, "critical_vulns": 220},
-                    "Cloudflare": {"exposed_services": 15000, "critical_vulns": 180},
-                    "DigitalOcean": {"exposed_services": 12000, "critical_vulns": 150}
+                    "Amazon": {"exposed_services": 25000, "critical_vulns_estimate": 300},
+                    "Google": {"exposed_services": 20000, "critical_vulns_estimate": 250},
+                    "Microsoft": {"exposed_services": 18000, "critical_vulns_estimate": 220},
+                    "Cloudflare": {"exposed_services": 15000, "critical_vulns_estimate": 180},
+                    "DigitalOcean": {"exposed_services": 12000, "critical_vulns_estimate": 150}
                 }
             }
     
@@ -303,7 +299,7 @@ class AstraDataFetcher:
         # Calculate global statistics
         countries = country_data["countries"]
         total_exposed = sum(c["exposed_services"] for c in countries.values())
-        total_vulns = sum(c["critical_vulns"] for c in countries.values())
+        total_vulns = sum(c.get("critical_vulns_estimate", 0) for c in countries.values())
         total_threats = sum(c.get("threat_activity", 0) for c in countries.values())
         
         return {

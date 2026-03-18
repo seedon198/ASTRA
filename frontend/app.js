@@ -121,7 +121,69 @@ function renderKPI(stats) {
 
 function renderApiStatus(status) {}
 function renderTable(countries) {}
-function renderCharts(countries, orgs) {}
+/* ===== BAR CHARTS ===== */
+function renderCharts(countries, orgs) {
+  const isDark = currentTheme === 'dark';
+  const gridColor = isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)';
+  const tickColor = isDark ? '#8b949e' : '#656d76';
+  const labelColor = isDark ? '#e6edf3' : '#1f2328';
+
+  const sharedOptions = () => ({
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: (ctx) => ` ${fmt(ctx.raw)}` } },
+    },
+    scales: {
+      x: {
+        grid: { color: gridColor },
+        ticks: { color: tickColor, callback: (v) => fmt(v) },
+      },
+      y: {
+        grid: { display: false },
+        ticks: { color: labelColor, font: { size: 12 } },
+      },
+    },
+  });
+
+  const topCountries = Object.entries(countries)
+    .filter(([, d]) => d.exposed_services != null)
+    .sort(([, a], [, b]) => b.exposed_services - a.exposed_services)
+    .slice(0, 10);
+
+  new Chart(document.getElementById('chart-countries').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: topCountries.map(([code]) => code),
+      datasets: [{
+        data: topCountries.map(([, d]) => d.exposed_services),
+        backgroundColor: isDark ? '#00ff8880' : '#1a7f3780',
+        borderColor:     isDark ? '#00ff88'   : '#1a7f37',
+        borderWidth: 1, borderRadius: 3,
+      }],
+    },
+    options: sharedOptions(),
+  });
+
+  const sortedOrgs = Object.entries(orgs)
+    .filter(([, d]) => d.exposed_services != null)
+    .sort(([, a], [, b]) => b.exposed_services - a.exposed_services);
+
+  new Chart(document.getElementById('chart-orgs').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: sortedOrgs.map(([name]) => name),
+      datasets: [{
+        data: sortedOrgs.map(([, d]) => d.exposed_services),
+        backgroundColor: isDark ? '#ffaa0080' : '#9a670080',
+        borderColor:     isDark ? '#ffaa00'   : '#9a6700',
+        borderWidth: 1, borderRadius: 3,
+      }],
+    },
+    options: sharedOptions(),
+  });
+}
 /* ===== WORLD MAP ===== */
 function getRiskTier(threatActivity) {
   if (threatActivity == null) return null;

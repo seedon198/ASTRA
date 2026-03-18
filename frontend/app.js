@@ -119,7 +119,28 @@ function renderKPI(stats) {
   }
 }
 
-function renderApiStatus(status) {}
+/* ===== API STATUS BAR ===== */
+const STATUS_COLORS = {
+  active:   '#00ff88',
+  inactive: '#8b949e',
+  error:    '#ff4444',
+};
+
+function renderApiStatus(status) {
+  const sources = [
+    { key: 'shodan',     elId: 'status-shodan',     label: 'Shodan'     },
+    { key: 'greynoise',  elId: 'status-greynoise',  label: 'GreyNoise'  },
+    { key: 'virustotal', elId: 'status-virustotal', label: 'VirusTotal' },
+  ];
+  sources.forEach(({ key, elId, label }) => {
+    const el = document.getElementById(elId);
+    if (!el) return;
+    const val = (status[key] || 'unknown').toLowerCase();
+    const color = STATUS_COLORS[val] || '#ffaa00';
+    el.querySelector('.status-dot').style.background = color;
+    el.lastChild.textContent = `\u00A0${label}`;
+  });
+}
 /* ===== COUNTRIES TABLE ===== */
 function getRiskBadge(threatActivity) {
   const val = threatActivity ?? 0;

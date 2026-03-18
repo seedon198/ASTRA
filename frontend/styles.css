@@ -186,8 +186,9 @@ a { color: var(--accent-green); }
 }
 #countries-table th.sortable { cursor: pointer; user-select: none; }
 #countries-table th.sortable:hover { color: var(--text-primary); }
-#countries-table th.sort-asc .sort-icon::after { content: ' ↑'; }
-#countries-table th.sort-desc .sort-icon::after { content: ' ↓'; }
+#countries-table th.sortable .sort-icon::after { content: ' ↕'; color: var(--text-secondary); }
+#countries-table th.sort-asc  .sort-icon::after { content: ' ↑'; color: var(--accent-green); }
+#countries-table th.sort-desc .sort-icon::after { content: ' ↓'; color: var(--accent-green); }
 #countries-table td {
   padding: 0.6rem 1rem; border-bottom: 1px solid var(--border);
   color: var(--text-primary);

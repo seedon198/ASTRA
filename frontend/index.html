@@ -16,7 +16,7 @@
   </div>
 
   <!-- Error banner -->
-  <div id="error-banner" class="error-banner hidden">
+  <div id="error-banner" class="error-banner hidden" role="alert">
     <div class="error-inner">
       <span class="error-icon">⚠</span>
       <h2>Failed to load data</h2>
@@ -48,28 +48,28 @@
     <section class="kpi-grid">
       <div class="kpi-card">
         <div class="kpi-chart-wrap">
-          <canvas id="gauge-exposed"></canvas>
+          <canvas id="gauge-exposed" role="img" aria-label="Gauge: Exposed Services"></canvas>
           <div class="kpi-number" id="num-exposed">—</div>
         </div>
         <div class="kpi-label">Exposed Services</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-chart-wrap">
-          <canvas id="gauge-vulns"></canvas>
+          <canvas id="gauge-vulns"   role="img" aria-label="Gauge: Critical Vulnerabilities"></canvas>
           <div class="kpi-number" id="num-vulns">—</div>
         </div>
         <div class="kpi-label">Critical Vulns</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-chart-wrap">
-          <canvas id="gauge-threats"></canvas>
+          <canvas id="gauge-threats" role="img" aria-label="Gauge: Active Threats"></canvas>
           <div class="kpi-number" id="num-threats">—</div>
         </div>
         <div class="kpi-label">Active Threats</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-chart-wrap">
-          <canvas id="gauge-malware"></canvas>
+          <canvas id="gauge-malware" role="img" aria-label="Gauge: Malicious Domains"></canvas>
           <div class="kpi-number" id="num-malware">—</div>
           <div class="kpi-no-data hidden" id="nodata-malware">No data</div>
         </div>
@@ -104,9 +104,9 @@
             <tr>
               <th>Flag</th>
               <th>Country</th>
-              <th class="sortable" data-col="exposed_services">Exposed Services <span class="sort-icon">↕</span></th>
-              <th class="sortable" data-col="critical_vulns">Critical Vulns <span class="sort-icon">↕</span></th>
-              <th class="sortable" data-col="threat_activity">Threat Activity <span class="sort-icon">↕</span></th>
+              <th class="sortable" data-col="exposed_services" aria-sort="none">Exposed Services <span class="sort-icon"></span></th>
+              <th class="sortable" data-col="critical_vulns"   aria-sort="none">Critical Vulns <span class="sort-icon"></span></th>
+              <th class="sortable" data-col="threat_activity"  aria-sort="none">Threat Activity <span class="sort-icon"></span></th>
               <th>Risk Level</th>
             </tr>
           </thead>

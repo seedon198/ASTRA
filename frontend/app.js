@@ -69,8 +69,56 @@ async function renderAll(data) {
   await renderMap(data.countries || {});
 }
 
-/* ===== STUBS (replaced in later tasks) ===== */
-function renderKPI(stats) {}
+/* ===== KPI CARDS ===== */
+function makeGauge(canvasId, value, total, accentColor, isEmpty = false) {
+  const ctx = document.getElementById(canvasId).getContext('2d');
+  const borderColor = getComputedStyle(document.documentElement)
+    .getPropertyValue('--border').trim() || '#30363d';
+  const data = isEmpty
+    ? { datasets: [{ data: [1], backgroundColor: [borderColor], borderWidth: 0 }] }
+    : { datasets: [{ data: [value, Math.max(0, total - value)], backgroundColor: [accentColor, 'rgba(255,255,255,0.05)'], borderWidth: 0, borderRadius: 3 }] };
+
+  return new Chart(ctx, {
+    type: 'doughnut',
+    data,
+    options: {
+      cutout: '72%',
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      animation: { duration: 800, easing: 'easeInOutQuart' },
+    },
+  });
+}
+
+function renderKPI(stats) {
+  const {
+    total_exposed_services: exposed = 0,
+    total_critical_vulns:   vulns   = 0,
+    total_threat_activity:  threats = 0,
+    malicious_domains:      malware = 0,
+    suspicious_domains:     susp    = 0,
+  } = stats;
+
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+  document.getElementById('num-exposed').textContent = fmt(exposed);
+  makeGauge('gauge-exposed', 72, 100, css('--accent-green'));
+
+  document.getElementById('num-vulns').textContent = fmt(vulns);
+  makeGauge('gauge-vulns', 60, 100, css('--accent-red'));
+
+  document.getElementById('num-threats').textContent = fmt(threats);
+  makeGauge('gauge-threats', 50, 100, css('--accent-amber'));
+
+  document.getElementById('num-malware').textContent = fmt(malware);
+  if (malware === 0) {
+    makeGauge('gauge-malware', 0, 100, '', true);
+    document.getElementById('nodata-malware').classList.remove('hidden');
+  } else {
+    const malPct = (malware / (malware + susp)) * 100;
+    makeGauge('gauge-malware', malPct, 100, css('--accent-purple'));
+  }
+}
+
 function renderApiStatus(status) {}
 function renderTable(countries) {}
 function renderCharts(countries, orgs) {}

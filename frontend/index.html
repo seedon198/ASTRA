@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASTRA — Global Attack Surface Tracker</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Loading overlay -->
+  <div id="loading-overlay" class="loading-overlay">
+    <div class="spinner"></div>
+    <p>Loading threat intelligence data…</p>
+  </div>
+
+  <!-- Error banner -->
+  <div id="error-banner" class="error-banner hidden">
+    <div class="error-inner">
+      <span class="error-icon">⚠</span>
+      <h2>Failed to load data</h2>
+      <code id="error-message"></code>
+    </div>
+  </div>
+
+  <!-- Main app — hidden until data loads -->
+  <div id="app" class="hidden">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-brand">
+        <h1 class="wordmark">ASTRA</h1>
+        <span class="subtitle">Global Attack Surface Tracker</span>
+      </div>
+      <div class="header-center">
+        <span class="last-updated-pill">Updated: <span id="last-updated">—</span></span>
+      </div>
+      <div class="header-right">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-label">Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- KPI Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-chart-wrap">
+          <canvas id="gauge-exposed"></canvas>
+          <div class="kpi-number" id="num-exposed">—</div>
+        </div>
+        <div class="kpi-label">Exposed Services</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-chart-wrap">
+          <canvas id="gauge-vulns"></canvas>
+          <div class="kpi-number" id="num-vulns">—</div>
+        </div>
+        <div class="kpi-label">Critical Vulns</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-chart-wrap">
+          <canvas id="gauge-threats"></canvas>
+          <div class="kpi-number" id="num-threats">—</div>
+        </div>
+        <div class="kpi-label">Active Threats</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-chart-wrap">
+          <canvas id="gauge-malware"></canvas>
+          <div class="kpi-number" id="num-malware">—</div>
+          <div class="kpi-no-data hidden" id="nodata-malware">No data</div>
+        </div>
+        <div class="kpi-label">Malicious Domains</div>
+      </div>
+    </section>
+
+    <!-- World Map -->
+    <section class="map-section">
+      <h3 class="section-title">Global Threat Map</h3>
+      <div id="world-map"></div>
+    </section>
+
+    <!-- Charts Row -->
+    <section class="charts-row">
+      <div class="chart-panel">
+        <h3 class="chart-title">Top 10 Countries by Exposed Services</h3>
+        <canvas id="chart-countries"></canvas>
+      </div>
+      <div class="chart-panel">
+        <h3 class="chart-title">Organizations by Exposed Services</h3>
+        <canvas id="chart-orgs"></canvas>
+      </div>
+    </section>
+
+    <!-- Countries Table -->
+    <section class="table-section">
+      <h3 class="section-title">Global Coverage</h3>
+      <div class="table-wrap">
+        <table id="countries-table">
+          <thead>
+            <tr>
+              <th>Flag</th>
+              <th>Country</th>
+              <th class="sortable" data-col="exposed_services">Exposed Services <span class="sort-icon">↕</span></th>
+              <th class="sortable" data-col="critical_vulns">Critical Vulns <span class="sort-icon">↕</span></th>
+              <th class="sortable" data-col="threat_activity">Threat Activity <span class="sort-icon">↕</span></th>
+              <th>Risk Level</th>
+            </tr>
+          </thead>
+          <tbody id="countries-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- API Status Footer -->
+    <footer class="api-status-bar">
+      <span class="api-status-label">Data Sources:</span>
+      <span class="api-status-item" id="status-shodan">
+        <span class="status-dot"></span>Shodan
+      </span>
+      <span class="api-status-item" id="status-greynoise">
+        <span class="status-dot"></span>GreyNoise
+      </span>
+      <span class="api-status-item" id="status-virustotal">
+        <span class="status-dot"></span>VirusTotal
+      </span>
+    </footer>
+
+  </div><!-- /#app -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

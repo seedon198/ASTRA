@@ -120,7 +120,80 @@ function renderKPI(stats) {
 }
 
 function renderApiStatus(status) {}
-function renderTable(countries) {}
+/* ===== COUNTRIES TABLE ===== */
+function getRiskBadge(threatActivity) {
+  const val = threatActivity ?? 0;
+  const tier = RISK_TIERS.find(t => val >= t.min && val <= t.max) || RISK_TIERS[RISK_TIERS.length - 1];
+  return `<span class="risk-badge" style="background:${tier.bg};color:${tier.color}">${tier.label}</span>`;
+}
+
+function countryFlag(code) {
+  try {
+    return [...code.toUpperCase()].map(c =>
+      String.fromCodePoint(0x1F1E6 + c.charCodeAt(0) - 65)
+    ).join('');
+  } catch { return '🏳'; }
+}
+
+let _tableData = [];
+let _sortCol = 'exposed_services';
+let _sortDir = 'desc';
+
+function renderTable(countries) {
+  _tableData = Object.entries(countries).map(([code, d]) => ({ code, ...d }));
+  bindTableSort();
+  drawTable();
+}
+
+function bindTableSort() {
+  document.querySelectorAll('#countries-table th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.col;
+      if (_sortCol === col) {
+        _sortDir = _sortDir === 'desc' ? 'asc' : 'desc';
+      } else {
+        _sortCol = col;
+        _sortDir = 'desc';
+      }
+      document.querySelectorAll('#countries-table th.sortable').forEach(t => {
+        t.classList.remove('sort-asc', 'sort-desc');
+        t.setAttribute('aria-sort', 'none');
+      });
+      th.classList.add(_sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+      th.setAttribute('aria-sort', _sortDir === 'asc' ? 'ascending' : 'descending');
+      drawTable();
+    });
+  });
+  // Set initial sort indicator
+  const defaultTh = document.querySelector(`#countries-table th[data-col="${_sortCol}"]`);
+  if (defaultTh) {
+    defaultTh.classList.add('sort-desc');
+    defaultTh.setAttribute('aria-sort', 'descending');
+  }
+}
+
+function drawTable() {
+  const sorted = [..._tableData].sort((a, b) => {
+    const av = a[_sortCol];
+    const bv = b[_sortCol];
+    if (av == null && bv == null) return 0;
+    if (av == null) return 1;
+    if (bv == null) return -1;
+    return _sortDir === 'asc' ? av - bv : bv - av;
+  });
+
+  const tbody = document.getElementById('countries-tbody');
+  tbody.innerHTML = sorted.map(row => `
+    <tr>
+      <td>${countryFlag(row.code)}</td>
+      <td><strong>${row.code}</strong></td>
+      <td>${row.exposed_services != null ? fmt(row.exposed_services) : '—'}</td>
+      <td>${row.critical_vulns   != null ? fmt(row.critical_vulns)   : '—'}</td>
+      <td>${row.threat_activity  != null ? fmt(row.threat_activity)  : '—'}</td>
+      <td>${getRiskBadge(row.threat_activity)}</td>
+    </tr>
+  `).join('');
+}
 /* ===== BAR CHARTS ===== */
 function renderCharts(countries, orgs) {
   const isDark = currentTheme === 'dark';

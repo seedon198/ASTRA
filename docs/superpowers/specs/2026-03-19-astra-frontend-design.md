@@ -27,18 +27,37 @@ frontend/
 
 ### Data Flow
 
-1. On `DOMContentLoaded`, `fetch('../data/latest.json')` (relative path works locally and on GitHub Pages)
-2. Parse JSON response
-3. Populate all widgets: KPI cards, choropleth map, bar charts, countries table, API status bar
-4. Display `last_updated` timestamp from JSON in the header
+1. On `DOMContentLoaded`, show loading spinner overlay
+2. `fetch(DATA_URL)` where `const DATA_URL = 'https://raw.githubusercontent.com/seedon198/ASTRA/main/data/latest.json'` — defined at the top of `app.js`
+3. On success: hide spinner, parse JSON, populate all widgets
+4. On failure: hide spinner, show full-page error banner with the error message
+
+> **Why raw GitHub URL:** When GitHub Pages serves from the `frontend/` subfolder, relative paths like `../data/` resolve outside the served scope and 404. Using the raw content URL bypasses this entirely and also means the dashboard works when opened locally as a file.
 
 ### Libraries (CDN only, no install)
 
-| Library | Version | Purpose |
-|---------|---------|---------|
-| Chart.js | 4.x | Doughnut gauge charts on KPI cards; horizontal bar charts |
-| Leaflet | 1.9.x | Interactive choropleth world map |
-| World GeoJSON | — | Country boundary polygons for Leaflet (CDN-hosted) |
+| Library | Version | CDN URL pattern |
+|---------|---------|----------------|
+| Chart.js | 4.x | `cdn.jsdelivr.net/npm/chart.js` |
+| Leaflet | 1.9.x | `cdn.jsdelivr.net/npm/leaflet` |
+| World GeoJSON | — | `https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson` |
+
+#### Leaflet Tile Layers
+
+Two tile sets are required — one per theme. Both are from CartoDB (no API key needed):
+
+| Theme | URL | Style |
+|-------|-----|-------|
+| Dark | `https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png` | Dark Matter (no labels) |
+| Light | `https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png` | Positron (no labels) |
+
+Attribution for both: `© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>`
+
+"No labels" variants are used so country labels from the tile layer don't clash with the tooltip overlays. On theme toggle, remove the current tile layer and add the new one.
+
+**GeoJSON property key:** `ISO_A2` — the two-letter ISO country code used to join against `data.countries` object keys (e.g. `"US"`, `"DE"`). Countries where `ISO_A2` is `"-99"` (disputed territories) are rendered in neutral grey with no tooltip.
+
+> **Note on TW / HK:** Taiwan (`TW`) and Hong Kong (`HK`) appear in `data.countries` but the GeoJSON source may encode them with `ISO_A2 === "-99"` due to political convention. If this occurs they will render neutral grey (the absent-country fallback) — this is acceptable behaviour and requires no special-casing.
 
 ---
 
@@ -46,99 +65,145 @@ frontend/
 
 ### 1. Header Bar (full width)
 - Left: `ASTRA` wordmark + "Global Attack Surface Tracker" subtitle
-- Centre: last-updated pill showing `data.last_updated`
-- Right: dark/light mode toggle button (icon + label)
+- Centre: last-updated pill — display `data.last_updated` (the human-readable string field, e.g. `"2026-03-18 17:48:31 UTC"`)
+- Right: dark/light mode toggle button (moon/sun icon + label)
 
-### 2. KPI Cards (4-column grid)
+### 2. KPI Cards (4-column grid, reads from `data.global_stats`)
 
-| Card | Data field | Gauge colour |
-|------|-----------|-------------|
-| Exposed Services | `global_stats.total_exposed_services` | Green `#00ff88` |
-| Critical Vulns | `global_stats.total_critical_vulns` | Red `#ff4444` |
-| Active Threats | `global_stats.total_threat_activity` | Amber `#ffaa00` |
-| Malicious Domains | `global_stats.malicious_domains` | Purple `#a78bfa` |
+All four KPI values come exclusively from `global_stats` — never re-aggregated from the countries array.
 
-Each card: large formatted number, label, Chart.js doughnut used as a gauge (value expressed as % of a sensible max).
+| Card | Field | Gauge fill strategy | Colour |
+|------|-------|-------------------|--------|
+| Exposed Services | `total_exposed_services` | Decorative — always renders at 72% fill; the number is the focal point | Green `#00ff88` |
+| Critical Vulns | `total_critical_vulns` | % of exposed services: `critical_vulns / exposed_services × 100`, capped at 100 | Red `#ff4444` |
+| Active Threats | `total_threat_activity` | % of exposed services: `threat_activity / exposed_services × 100`, capped at 100 | Amber `#ffaa00` |
+| Malicious Domains | `malicious_domains` | If value > 0: `value / (value + suspicious_domains) × 100`. If value === 0: use Chart.js dataset `[1]` with colour `--border` and `borderWidth: 0` as a sentinel to render a visible grey ring; overlay "No data" via an absolutely-positioned HTML element centred on the canvas | Purple `#a78bfa` |
+
+Each card shows: large formatted number (via `Intl.NumberFormat`), metric label, and the doughnut gauge.
 
 ### 3. World Map (full width)
-- Leaflet choropleth; countries coloured in 4 tiers by composite risk score (threat_activity weighted + exposed_services normalised)
-- 4-colour scale: dark teal (low) → amber → orange → bright red (high)
-- Hover tooltip: country name, exposed services, critical vulns, threat activity
-- Countries not in the dataset rendered in neutral grey
+- Leaflet choropleth using the GeoJSON specified above
+- Countries coloured by `threat_activity` using 4 fixed tiers:
 
-### 4. Charts Row (two panels, side by side)
-- **Left:** Horizontal bar chart — top 10 countries by `exposed_services`
-- **Right:** Horizontal bar chart — all 5 organisations by `exposed_services`
-- Both use Chart.js, accent colour matching the green/red theme
+| Tier | Threshold | Colour |
+|------|-----------|--------|
+| Low | `threat_activity === 0` | Dark teal `#0d4f4f` |
+| Medium | `1 – 999` | Amber `#b8860b` |
+| High | `1000 – 1999` | Orange `#cc5500` |
+| Critical | `≥ 2000` | Bright red `#cc0000` |
+
+- Countries in GeoJSON but absent from `data.countries`: neutral grey `#3a3f47` (dark) / `#cccccc` (light), no tooltip
+- Hover tooltip: country name (from GeoJSON `name` property), exposed services, critical vulns, threat activity — all formatted with `Intl.NumberFormat`
+- Map background matches the current theme's `--bg-primary`
+
+### 4. Charts Row (two panels, side by side, 50/50)
+
+**Left — Top 10 Countries by Exposed Services**
+- Horizontal bar chart (Chart.js)
+- Sort `data.countries` entries by `exposed_services` descending, take top 10
+- X-axis: exposed_services; Y-axis: country code labels
+- Bar colour: `--accent-green`
+
+**Right — Organisations by Exposed Services**
+- Horizontal bar chart (Chart.js)
+- Sort `data.organizations` entries by `exposed_services` descending (all 5 shown)
+- X-axis: exposed_services; Y-axis: org name labels
+- Bar colour: `--accent-amber`
+- Note: `threat_activity` is intentionally absent from org data — do not show it
 
 ### 5. Countries Table (full width)
-- All ~50 countries from `data.countries`
-- Columns: Flag emoji · Country code · Exposed Services · Critical Vulns · Threat Activity · Risk badge
-- Sortable by any numeric column (click header)
-- Risk badge: colour-coded pill (Low / Medium / High / Critical) derived from threat_activity threshold
+
+- Renders all entries in `data.countries`
+- **Default sort:** `exposed_services` descending
+- **Columns:** Flag emoji · Country code · Exposed Services · Critical Vulns · Threat Activity · Risk badge
+- **Sortable:** click any numeric column header to sort ascending/descending (toggle); "missing" means the key is absent or `null` in the JSON — those entries sort to the bottom. `0` is a valid value and sorts normally alongside other numbers.
+- **Risk badge** — derived from `threat_activity` using the same thresholds as the choropleth:
+
+| Badge label | Threshold | Background | Text |
+|-------------|-----------|------------|------|
+| LOW | `=== 0` | `#0d4f4f` | `#00ff88` |
+| MEDIUM | `1 – 999` | `#3a2800` | `#ffaa00` |
+| HIGH | `1000 – 1999` | `#3a1500` | `#ff8800` |
+| CRITICAL | `≥ 2000` | `#2a0000` | `#ff4444` |
+
+- Flag emoji sourced by converting country code to regional indicator Unicode: `String.fromCodePoint(...[...code].map(c => 0x1F1E6 + c.charCodeAt(0) - 65))`
 
 ### 6. API Status Bar (footer)
-- Three inline status indicators: Shodan · GreyNoise · VirusTotal
-- Dot colour: green if `api_status[source] === 'active'`, red otherwise
-- Thin, unobtrusive — sits at the bottom of the page
+
+Reads from `data.api_status`. Possible values and visual treatment:
+
+| Value | Dot colour | Label |
+|-------|-----------|-------|
+| `"active"` | Green `#00ff88` | Active |
+| `"inactive"` | Grey `#8b949e` | Inactive |
+| `"error"` | Red `#ff4444` | Error |
+| Any other / missing | Amber `#ffaa00` | Unknown |
+
+Three entries always shown: Shodan · GreyNoise · VirusTotal.
 
 ---
 
 ## Theming
 
-CSS custom properties on `:root` and `body.light` — toggling `.light` on `<body>` switches the entire UI.
+CSS custom properties on `:root` define dark mode (default). Adding `.light` class to `<body>` overrides to light mode.
 
-### Dark mode (default)
+**First-visit behaviour:** Check `localStorage.getItem('astra-theme')`. If `'light'`, apply `.light`. Otherwise (empty, `'dark'`, or any other value) render dark mode. No `prefers-color-scheme` media query — dark is always the default.
 
-```css
---bg-primary:    #0d1117;
---bg-card:       #161b22;
---border:        #30363d;
---text-primary:  #e6edf3;
---text-secondary:#8b949e;
---accent-green:  #00ff88;
---accent-red:    #ff4444;
---accent-amber:  #ffaa00;
---accent-purple: #a78bfa;
-```
-
-### Light mode
+### Dark mode (default, `:root`)
 
 ```css
---bg-primary:    #f6f8fa;
---bg-card:       #ffffff;
---border:        #d0d7de;
---text-primary:  #1f2328;
---text-secondary:#656d76;
-/* accent colours same, slightly desaturated */
+--bg-primary:     #0d1117;
+--bg-card:        #161b22;
+--border:         #30363d;
+--text-primary:   #e6edf3;
+--text-secondary: #8b949e;
+--accent-green:   #00ff88;
+--accent-red:     #ff4444;
+--accent-amber:   #ffaa00;
+--accent-purple:  #a78bfa;
+--map-neutral:    #3a3f47;
 ```
 
-Theme preference persisted to `localStorage` and restored on load.
+### Light mode (`body.light`)
+
+```css
+--bg-primary:     #f6f8fa;
+--bg-card:        #ffffff;
+--border:         #d0d7de;
+--text-primary:   #1f2328;
+--text-secondary: #656d76;
+--accent-green:   #1a7f37;
+--accent-red:     #cf222e;
+--accent-amber:   #9a6700;
+--accent-purple:  #6639ba;
+--map-neutral:    #cccccc;
+```
+
+On toggle: flip `.light` class on `<body>`, save value to `localStorage`, re-render Leaflet tile layer background colour.
 
 ### Typography
-System font stack (`-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`) — no web font request, faster load.
+System font stack (`-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`) — no web font request.
 
 ---
 
-## Error Handling
+## Loading & Error States
 
-- If `fetch` fails (e.g. offline, missing file): show a full-page error banner with the error message
-- If a country in the GeoJSON has no data in `latest.json`: render it in neutral grey, no tooltip data
-- All number formatting via `Intl.NumberFormat` for locale-aware comma separators
+**Loading:** Full-page overlay with a spinner and "Loading threat intelligence data…" label. Shown immediately on `DOMContentLoaded`, hidden once data renders or error occurs.
+
+**Error:** Full-page error banner (replaces spinner overlay) with icon, "Failed to load data" heading, and the raw error message in a `<code>` block.
 
 ---
 
 ## Deployment
 
 - GitHub Pages source: `frontend/` folder on `main` branch
-- No workflow changes needed — the existing data-fetch Action already commits `data/latest.json` every 6 hours
-- The frontend always reads the latest committed JSON on page load
+- No workflow changes needed — the existing data-fetch Action commits `data/latest.json` every 6 hours; the dashboard reads whatever is committed on load
 
 ---
 
 ## Out of Scope
 
-- Auto-refresh / polling (page loads once)
+- Auto-refresh / polling (page loads once, manual browser refresh to update)
 - Historical trend charts (data not yet stored historically)
-- Search/filter on the countries table (can be added later)
+- Search/filter on the countries table
 - Backend or server-side rendering

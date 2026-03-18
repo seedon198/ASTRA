@@ -33,7 +33,7 @@ function applyTheme(theme) {
     btn.querySelector('.theme-label').textContent = theme === 'light' ? 'Light' : 'Dark';
   }
   localStorage.setItem('astra-theme', theme);
-  if (window._leafletMap) swapTileLayer(theme);
+  if (_leafletMap) swapTileLayer(theme);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -51,6 +51,7 @@ async function loadData() {
     if (!res.ok) throw new Error(`HTTP ${res.status} — ${res.statusText}`);
     const data = await res.json();
     await renderAll(data);
+    bindTableSort();
     document.getElementById('loading-overlay').classList.add('hidden');
     document.getElementById('app').classList.remove('hidden');
   } catch (err) {
@@ -78,7 +79,8 @@ function makeGauge(canvasId, value, total, accentColor, isEmpty = false) {
     ? { datasets: [{ data: [1], backgroundColor: [borderColor], borderWidth: 0 }] }
     : { datasets: [{ data: [value, Math.max(0, total - value)], backgroundColor: [accentColor, 'rgba(255,255,255,0.05)'], borderWidth: 0, borderRadius: 3 }] };
 
-  return new Chart(ctx, {
+  if (_charts[canvasId]) { _charts[canvasId].destroy(); }
+  _charts[canvasId] = new Chart(ctx, {
     type: 'doughnut',
     data,
     options: {
@@ -87,6 +89,7 @@ function makeGauge(canvasId, value, total, accentColor, isEmpty = false) {
       animation: { duration: 800, easing: 'easeInOutQuart' },
     },
   });
+  return _charts[canvasId];
 }
 
 function renderKPI(stats) {
@@ -159,10 +162,12 @@ function countryFlag(code) {
 let _tableData = [];
 let _sortCol = 'exposed_services';
 let _sortDir = 'desc';
+const _charts = {};
+let _leafletMap = null;
+let _tileLayer = null;
 
 function renderTable(countries) {
   _tableData = Object.entries(countries).map(([code, d]) => ({ code, ...d }));
-  bindTableSort();
   drawTable();
 }
 
@@ -246,7 +251,8 @@ function renderCharts(countries, orgs) {
     .sort(([, a], [, b]) => b.exposed_services - a.exposed_services)
     .slice(0, 10);
 
-  new Chart(document.getElementById('chart-countries').getContext('2d'), {
+  if (_charts['chart-countries']) { _charts['chart-countries'].destroy(); }
+  _charts['chart-countries'] = new Chart(document.getElementById('chart-countries').getContext('2d'), {
     type: 'bar',
     data: {
       labels: topCountries.map(([code]) => code),
@@ -264,7 +270,8 @@ function renderCharts(countries, orgs) {
     .filter(([, d]) => d.exposed_services != null)
     .sort(([, a], [, b]) => b.exposed_services - a.exposed_services);
 
-  new Chart(document.getElementById('chart-orgs').getContext('2d'), {
+  if (_charts['chart-orgs']) { _charts['chart-orgs'].destroy(); }
+  _charts['chart-orgs'] = new Chart(document.getElementById('chart-orgs').getContext('2d'), {
     type: 'bar',
     data: {
       labels: sortedOrgs.map(([name]) => name),
@@ -288,14 +295,17 @@ function getRiskTier(threatActivity) {
 }
 
 async function renderMap(countries) {
-  const map = L.map('world-map', { zoomControl: true, scrollWheelZoom: false })
+  if (_leafletMap) {
+    _leafletMap.remove();
+    _leafletMap = null;
+  }
+  _leafletMap = L.map('world-map', { zoomControl: true, scrollWheelZoom: false })
     .setView([20, 0], 2);
-  window._leafletMap = map;
 
-  window._tileLayer = L.tileLayer(
+  _tileLayer = L.tileLayer(
     currentTheme === 'dark' ? TILE_DARK : TILE_LIGHT,
     { attribution: TILE_ATTR, maxZoom: 6 }
-  ).addTo(map);
+  ).addTo(_leafletMap);
 
   // Map legend
   const legend = L.control({ position: 'bottomright' });
@@ -309,11 +319,12 @@ async function renderMap(countries) {
     `;
     return div;
   };
-  legend.addTo(map);
+  legend.addTo(_leafletMap);
 
   let geoData;
   try {
     const res = await fetch(GEOJSON_URL);
+    if (!res.ok) throw new Error(`GeoJSON fetch failed: ${res.status}`);
     geoData = await res.json();
   } catch (e) {
     console.warn('GeoJSON failed to load:', e);
@@ -338,13 +349,16 @@ async function renderMap(countries) {
       const name = feature.properties.name || iso;
       const d = countries[iso];
       if (!d) return;
+      const services = d.exposed_services ?? null;
+      const vulns = d.critical_vulns ?? null;
+      const threats = d.threat_activity ?? null;
       layer.bindTooltip(
         `<div style="min-width:160px">
           <strong>${name}</strong><br/>
           <span style="color:#8b949e;font-size:0.75rem">
-            Exposed: ${fmt(d.exposed_services)}<br/>
-            Critical Vulns: ${fmt(d.critical_vulns)}<br/>
-            Threat Activity: ${fmt(d.threat_activity)}
+            Exposed: ${services != null ? fmt(services) : 'N/A'}<br/>
+            Critical Vulns: ${vulns != null ? fmt(vulns) : 'N/A'}<br/>
+            Threat Activity: ${threats != null ? fmt(threats) : 'N/A'}
           </span>
         </div>`,
         { sticky: true, opacity: 0.97 }
@@ -354,14 +368,14 @@ async function renderMap(countries) {
         mouseout(e)  { e.target.setStyle({ weight: 0.5, color: '#222', fillOpacity: 0.8 }); },
       });
     },
-  }).addTo(map);
+  }).addTo(_leafletMap);
 }
 
 function swapTileLayer(theme) {
-  if (!window._leafletMap || !window._tileLayer) return;
-  window._leafletMap.removeLayer(window._tileLayer);
-  window._tileLayer = L.tileLayer(
+  if (!_leafletMap || !_tileLayer) return;
+  _leafletMap.removeLayer(_tileLayer);
+  _tileLayer = L.tileLayer(
     theme === 'dark' ? TILE_DARK : TILE_LIGHT,
     { attribution: TILE_ATTR, maxZoom: 6 }
-  ).addTo(window._leafletMap);
+  ).addTo(_leafletMap);
 }

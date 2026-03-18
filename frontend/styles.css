@@ -152,6 +152,27 @@ a { color: var(--accent-green); }
   height: 460px; border-radius: 10px;
   border: 1px solid var(--border); overflow: hidden;
 }
+.map-legend {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+.legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
 
 /* ===== CHARTS ROW ===== */
 .charts-row {

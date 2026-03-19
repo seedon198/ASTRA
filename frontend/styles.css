@@ -257,3 +257,34 @@ a { color: var(--accent-green); }
   color: var(--text-primary) !important;
   border-color: var(--border) !important;
 }
+
+/* ===== POLISH ===== */
+/* Responsive number size in KPI cards */
+@media (max-width: 1200px) { .kpi-number { font-size: 0.95rem; } }
+@media (max-width: 900px)  { .kpi-number { font-size: 0.85rem; } }
+
+/* Table numbers right-aligned */
+#countries-table td:nth-child(3),
+#countries-table td:nth-child(4),
+#countries-table td:nth-child(5) { text-align: right; font-variant-numeric: tabular-nums; }
+#countries-table th:nth-child(3),
+#countries-table th:nth-child(4),
+#countries-table th:nth-child(5) { text-align: right; }
+
+/* Smooth transitions on theme switch */
+.kpi-card, .chart-panel, .table-wrap, .api-status-bar, .header {
+  transition: background 0.2s, border-color 0.2s;
+}
+
+/* Map legend */
+.map-legend {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px; padding: 0.5rem 0.75rem;
+  font-size: 0.72rem; color: var(--text-secondary);
+  line-height: 1.8;
+}
+.legend-row { display: flex; align-items: center; gap: 0.5rem; }
+.legend-swatch {
+  width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0;
+}

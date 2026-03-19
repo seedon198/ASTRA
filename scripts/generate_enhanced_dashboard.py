@@ -63,6 +63,10 @@ class AstraEnhancedDashboard:
     def format_number(self, num):
         """Format numbers with commas"""
         return f"{num:,}"
+
+    def get_vulns(self, stats):
+        """Return critical vulns, handling both old and new field names"""
+        return stats.get("critical_vulns_estimate", stats.get("critical_vulns", 0))
     
     def generate_enhanced_dashboard(self, data: Dict[str, Any]) -> str:
         """Generate comprehensive ASTRA dashboard with enhanced visualizations"""
@@ -101,28 +105,29 @@ class AstraEnhancedDashboard:
         except:
             # Fallback to simple replacement
             badge_time = last_updated.replace(" ", ".").replace(":", ".").replace("-", ".")
-        
-        content = f"""<div align="center"># ASTRA - Global Attack Surface Tracker
 
+        content = f"""# ASTRA — Global Attack Surface Tracker
 
+<div align="center">
 
 ![ASTRA Logo](https://img.shields.io/badge/ASTRA-Global%20Attack%20Surface%20Tracker-2ea44f?style=for-the-badge&logo=shield)
 
 **Real-time cybersecurity exposure monitoring across global infrastructure**
 
+[![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-Visit-2ea44f?style=for-the-badge&logo=github)](https://seedon198.github.io/ASTRA/)
+[![Raw JSON](https://img.shields.io/badge/Raw%20JSON-latest.json-blue?style=for-the-badge&logo=json)](https://raw.githubusercontent.com/seedon198/ASTRA/main/data/latest.json)
+
 [![Data Status](https://img.shields.io/badge/Data-Live-brightgreen?style=flat-square)](https://github.com/seedon198/ASTRA)
 [![Last Updated](https://img.shields.io/badge/Updated-{badge_time}-blue?style=flat-square)](https://github.com/seedon198/ASTRA)
 [![APIs Active](https://img.shields.io/badge/APIs-{len(data["data_sources"])}-success?style=flat-square)](https://github.com/seedon198/ASTRA)
-[![Auto Update](https://img.shields.io/badge/Auto_Update-15min-orange?style=flat-square)](https://github.com/seedon198/ASTRA)
+[![Auto Update](https://img.shields.io/badge/Auto%20Update-6h-orange?style=flat-square)](https://github.com/seedon198/ASTRA/actions)
 
 </div>
 
 ---
 
-## 🌍 Global Threat Intelligence Dashboard
-
-> **Last Updated:** `{data["last_updated"]}`  
-> **Data Sources:** {" • ".join(data["data_sources"])}  
+> **Last Updated:** `{data["last_updated"]}`
+> **Data Sources:** {" • ".join(data["data_sources"])}
 > **Coverage:** {len(data["countries"])} Countries • {len(data["organizations"])} Organizations
 
 ---
@@ -200,7 +205,7 @@ Confirmed Malicious
 
         for i, (country, stats) in enumerate(top_countries, 1):
             threat_activity = stats.get("threat_activity", 0)
-            risk_score = (stats["critical_vulns"] + threat_activity) / stats["exposed_services"] * 100 if stats["exposed_services"] > 0 else 0
+            risk_score = (self.get_vulns(stats) + threat_activity) / stats["exposed_services"] * 100 if stats["exposed_services"] > 0 else 0
             
             # Risk level based on score
             if risk_score > 5:
@@ -215,7 +220,7 @@ Confirmed Malicious
 <td align="center"><strong>{i}</strong></td>
 <td align="center"><strong>{country}</strong></td>
 <td align="center">{self.format_number(stats['exposed_services'])}</td>
-<td align="center">{self.format_number(stats['critical_vulns'])}</td>
+<td align="center">{self.format_number(self.get_vulns(stats))}</td>
 <td align="center">{self.format_number(threat_activity)}</td>
 <td align="center">{risk_badge}</td>
 <td align="center">📊</td>
@@ -264,7 +269,7 @@ Top 5 Countries (by exposed services):
         for country, stats in data["countries"].items():
             flag = country_flags.get(country, "🏳️")
             threat_activity = stats.get("threat_activity", 0)
-            security_score = max(0, 100 - ((stats["critical_vulns"] + threat_activity) / stats["exposed_services"] * 10)) if stats["exposed_services"] > 0 else 0
+            security_score = max(0, 100 - ((self.get_vulns(stats) + threat_activity) / stats["exposed_services"] * 10)) if stats["exposed_services"] > 0 else 0
             
             if security_score > 85:
                 risk_level = "🟢 LOW"
@@ -280,71 +285,35 @@ Top 5 Countries (by exposed services):
 <td align="center"><strong>{country}</strong></td>
 <td align="center">{flag}</td>
 <td align="center">{self.format_number(stats['exposed_services'])}</td>
-<td align="center">{self.format_number(stats['critical_vulns'])}</td>
+<td align="center">{self.format_number(self.get_vulns(stats))}</td>
 <td align="center">{self.format_number(threat_activity)}</td>
 <td align="center">{risk_level}</td>
 <td align="center">{security_score:.1f}%</td>
 </tr>"""
 
+        # Build tier lists from real data
+        tier_critical = [c for c, s in data["countries"].items() if s.get("threat_activity", 0) >= 2000]
+        tier_high     = [c for c, s in data["countries"].items() if 1000 <= s.get("threat_activity", 0) < 2000]
+        tier_medium   = [c for c, s in data["countries"].items() if 1 <= s.get("threat_activity", 0) < 1000]
+        tier_low      = [c for c, s in data["countries"].items() if s.get("threat_activity", 0) == 0]
+
+        def tier_summary(countries_list):
+            if not countries_list:
+                return "—"
+            return " · ".join(countries_list[:8]) + (" …" if len(countries_list) > 8 else "")
+
         content += f"""
 </table>
 </div>
 
-### 🗺️ Interactive Threat Map
+### 🗺️ Threat Tier Summary
 
-```mermaid
-graph TB
-    World[🌍 Global Threat Intelligence]
-    
-    subgraph "🔴 CRITICAL RISK"
-        Critical[High Threat Countries]
-        RU[🇷🇺 Russia]
-        CN[🇨🇳 China] 
-        Critical --> RU
-        Critical --> CN
-    end
-    
-    subgraph "🟠 HIGH RISK"
-        High[Medium Threat Countries]
-        US[🇺🇸 United States]
-        GB[🇬🇧 United Kingdom]
-        DE[🇩🇪 Germany]
-        High --> US
-        High --> GB
-        High --> DE
-    end
-    
-    subgraph "🟡 MODERATE RISK"
-        Moderate[Low-Medium Threat Countries]
-        JP[🇯🇵 Japan]
-        FR[🇫🇷 France]
-        CA[🇨🇦 Canada]
-        Moderate --> JP
-        Moderate --> FR
-        Moderate --> CA
-    end
-    
-    subgraph "🟢 LOW RISK"
-        Low[Low Threat Countries]
-        CH[🇨🇭 Switzerland]
-        NO[🇳🇴 Norway]
-        SE[🇸🇪 Sweden]
-        Low --> CH
-        Low --> NO
-        Low --> SE
-    end
-    
-    World --> Critical
-    World --> High
-    World --> Moderate
-    World --> Low
-    
-    style World fill:#e1f5fe
-    style Critical fill:#ffebee
-    style High fill:#fff3e0
-    style Moderate fill:#fffde7
-    style Low fill:#e8f5e8
-```
+| Tier | Threshold | Countries |
+|------|-----------|-----------|
+| 🔴 Critical | ≥ 2000 threat activity | {tier_summary(tier_critical)} |
+| 🟠 High | 1000 – 1999 | {tier_summary(tier_high)} |
+| 🟡 Medium | 1 – 999 | {tier_summary(tier_medium)} |
+| 🟢 Low | 0 | {len(tier_low)} countries |
 
 #### 🎯 Regional Threat Analysis
 
@@ -368,7 +337,7 @@ graph TB
                 continue
                 
             total_threats = sum(data["countries"][c].get("threat_activity", 0) for c in region_countries)
-            avg_security = sum(max(0, 100 - ((data["countries"][c]["critical_vulns"] + data["countries"][c].get("threat_activity", 0)) / data["countries"][c]["exposed_services"] * 10)) if data["countries"][c]["exposed_services"] > 0 else 0 for c in region_countries) / len(region_countries)
+            avg_security = sum(max(0, 100 - ((self.get_vulns(data["countries"][c]) + data["countries"][c].get("threat_activity", 0)) / data["countries"][c]["exposed_services"] * 10)) if data["countries"][c]["exposed_services"] > 0 else 0 for c in region_countries) / len(region_countries)
             
             if avg_security > 80:
                 region_risk = "🟢 LOW"
@@ -406,21 +375,21 @@ graph TB
 <tr><th align="center">Rank</th><th align="center">Organization</th><th align="center">🌐 Exposed Services</th><th align="center">🚨 Critical Vulns</th><th align="center">📊 Risk Level</th><th align="center">🔒 Security Score</th></tr>"""
 
         for i, (org, stats) in enumerate(top_orgs, 1):
-            security_score = max(0, 100 - (stats["critical_vulns"] / stats["exposed_services"] * 100)) if stats["exposed_services"] > 0 else 0
-            
+            security_score = max(0, 100 - (self.get_vulns(stats) / stats["exposed_services"] * 100)) if stats["exposed_services"] > 0 else 0
+
             if security_score > 80:
                 risk_level = "🟢 LOW"
             elif security_score > 60:
                 risk_level = "🟡 MODERATE"
             else:
                 risk_level = "🔴 HIGH"
-                
+
             content += f"""
 <tr>
 <td align="center"><strong>{i}</strong></td>
 <td align="center"><strong>{org}</strong></td>
 <td align="center">{self.format_number(stats['exposed_services'])}</td>
-<td align="center">{self.format_number(stats['critical_vulns'])}</td>
+<td align="center">{self.format_number(self.get_vulns(stats))}</td>
 <td align="center">{risk_level}</td>
 <td align="center">{security_score:.1f}/100</td>
 </tr>"""
@@ -436,7 +405,7 @@ Security Score Distribution:
 {'=' * 40}"""
 
         for i, (org, stats) in enumerate(top_orgs[:5], 1):
-            security_score = max(0, 100 - (stats["critical_vulns"] / stats["exposed_services"] * 100)) if stats["exposed_services"] > 0 else 0
+            security_score = max(0, 100 - (self.get_vulns(stats) / stats["exposed_services"] * 100)) if stats["exposed_services"] > 0 else 0
             bar_length = int(security_score / 100 * 20)
             content += f"""
 {org:<12} {'█' * bar_length}{'░' * (20 - bar_length)} {security_score:5.1f}/100"""
@@ -468,8 +437,8 @@ Security Score Distribution:
 
         api_info = [
             ("Shodan Pro", data["api_status"]["shodan"], api_data_points["shodan"], "Device & Service Discovery", "Real-time"),
-            ("GreyNoise", data["api_status"]["greynoise"], api_data_points["greynoise"], "Threat Intelligence", "15 minutes"),
-            ("VirusTotal", data["api_status"]["virustotal"], api_data_points["virustotal"], "Malware & Domain Analysis", "15 minutes")
+            ("GreyNoise", data["api_status"]["greynoise"], api_data_points["greynoise"], "Threat Intelligence", "6 hours"),
+            ("VirusTotal", data["api_status"]["virustotal"], api_data_points["virustotal"], "Malware & Domain Analysis", "6 hours")
         ]
 
         for name, status, points, purpose, rate in api_info:
@@ -515,45 +484,50 @@ graph LR
 
 ### Update Process
 
-1. **Data Fetch** (Every 15 minutes via GitHub Actions)
-2. **Risk Analysis** (Automated scoring and trending)
-3. **Dashboard Generation** (Live README.md update)
+1. **Data Fetch** (Every 6 hours via GitHub Actions)
+2. **Risk Analysis** (Automated scoring)
+3. **Dashboard Generation** (README.md updated with live data)
 4. **Version Control** (Automated commit with timestamp)
 
 </details>
 
 ---
 
-## ⚡ Quick Actions
+## ⚡ Quick Links
 
 <div align="center">
 
-[![View Raw Data](https://img.shields.io/badge/📊-View%20Raw%20Data-blue?style=for-the-badge)](./data/latest.json)
-[![API Status](https://img.shields.io/badge/🔍-Check%20API%20Status-green?style=for-the-badge)](#-data-sources--intelligence-pipeline)
-[![Methodology](https://img.shields.io/badge/🔬-View%20Methodology-orange?style=for-the-badge)](#-methodology--data-processing)
+[![Live Dashboard](https://img.shields.io/badge/🌐-Live%20Dashboard-2ea44f?style=for-the-badge)](https://seedon198.github.io/ASTRA/)
+[![Raw JSON](https://img.shields.io/badge/📦-Raw%20JSON%20Data-blue?style=for-the-badge)](https://raw.githubusercontent.com/seedon198/ASTRA/main/data/latest.json)
+[![API Status](https://img.shields.io/badge/🔍-API%20Status-green?style=for-the-badge)](#-data-sources--intelligence-pipeline)
 
 </div>
 
 ---
 
-## 📈 Historical Trends
+## 📁 Repository Structure
 
-> **Note**: Trend data calculated from last 24-hour period. Historical analytics implementation in progress.
-
-<div align="center">
-<table width="100%">
-<tr><th align="center">Metric</th><th align="center">Current</th><th align="center">24h Change</th><th align="center">7d Average</th><th align="center">Trend</th></tr>
-<tr><td align="center"><strong>Exposed Services</strong></td><td align="center">{self.format_number(data["global_stats"]["total_exposed_services"])}</td><td align="center">+2.3%</td><td align="center">{self.format_number(int(data["global_stats"]["total_exposed_services"] * 0.98))}</td><td align="center">📈</td></tr>
-<tr><td align="center"><strong>Critical Vulns</strong></td><td align="center">{self.format_number(data["global_stats"]["total_critical_vulns"])}</td><td align="center">-1.2%</td><td align="center">{self.format_number(int(data["global_stats"]["total_critical_vulns"] * 1.02))}</td><td align="center">📉</td></tr>
-<tr><td align="center"><strong>Active Threats</strong></td><td align="center">{self.format_number(data["global_stats"]["total_threat_activity"])}</td><td align="center">+5.7%</td><td align="center">{self.format_number(int(data["global_stats"]["total_threat_activity"] * 0.95))}</td><td align="center">📈</td></tr>
-</table>
-</div>
+```
+ASTRA/
+├── data/
+│   └── latest.json          # Live threat intelligence snapshot (updated every 6h)
+├── frontend/
+│   ├── index.html           # Dashboard entry point
+│   ├── app.js               # Rendering logic (Chart.js + Leaflet)
+│   └── styles.css           # Theming and layout
+├── scripts/
+│   ├── fetch_data.py        # API data collection
+│   └── generate_enhanced_dashboard.py  # README generator
+└── .github/workflows/
+    ├── data-fetch.yml       # Runs every 6 hours — fetches data, updates README
+    └── deploy-pages.yml     # Deploys frontend/ to GitHub Pages on push
+```
 
 ---
 
 <div align="center">
 
-**ASTRA - Attack Surface Tracker & Risk Analyzer**
+**ASTRA — Attack Surface Tracker & Risk Analyzer**
 
 *Automated threat intelligence for cybersecurity professionals*
 
@@ -561,7 +535,7 @@ graph LR
 
 ---
 
-*Generated automatically by ASTRA • {datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")} • Next update in ~15 minutes*
+*Generated automatically by ASTRA • {datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")} • Data refreshes every 6 hours*
 
 </div>"""
 

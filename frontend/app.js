@@ -50,10 +50,11 @@ async function loadData() {
     const res = await fetch(DATA_URL);
     if (!res.ok) throw new Error(`HTTP ${res.status} — ${res.statusText}`);
     const data = await res.json();
-    await renderAll(data);
-    bindTableSort();
     document.getElementById('loading-overlay').classList.add('hidden');
     document.getElementById('app').classList.remove('hidden');
+    await renderAll(data);
+    bindTableSort();
+    if (_leafletMap) _leafletMap.invalidateSize();
   } catch (err) {
     document.getElementById('loading-overlay').classList.add('hidden');
     document.getElementById('error-message').textContent = err.message;
